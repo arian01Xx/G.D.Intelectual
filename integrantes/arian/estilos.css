@@ -514,7 +514,14 @@ iframe{
 	box-shadow: 6px 6px 15px #00ffed;
 	font-family: arial;
 }
+
 iframe{
 	float: right;
 	width: 83%; min-height: 800px;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	height: 100vh;
 }
