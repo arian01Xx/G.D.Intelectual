@@ -509,3 +509,86 @@ iframe{
 	box-shadow: 6px 6px 15px #00ffed;
 	font-family: arial;
 }
+
+/* Mantiene el diseño para PC y ajusta solo para móviles */
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 0px;
+    }
+    
+    .cabecera {
+        position: relative;
+        padding: 10px;
+    }
+
+    .menuDos{
+        text-align: left;
+        width: 20%;
+        padding: 0px 0px;
+        float: right;
+    }
+
+    .menuDos li{
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 5px;
+        padding: 3px;
+        margin-left: -30px;
+    }
+
+    .menuIzquierda{
+    	float: left;
+    	width:2%;
+    	margin-left: 0px;
+	    padding: 0px;
+    }
+
+    .menuIzquierda li{
+    	padding: 2px;
+    }
+
+    .pequeño, .gifUno{
+    	display: none;
+    }
+    
+    .columnaDerecha{
+        float: none;
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+    
+    iframe {
+        width: 100%;
+        min-height: 400px;
+    }
+
+    /*
+    .loader{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 300px;
+	height: 300px;
+	display: flex;
+	transform-style: preserve-3d;
+	transform: rotateX(-20deg);
+    }
+    */
+
+    .loader{
+    	display: none;
+    }
+
+     nav {
+        display: inline-block;
+        width: 48%; /* o cualquier otro porcentaje que desees */
+        vertical-align: top;
+     }
+}

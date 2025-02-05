@@ -531,3 +531,17 @@ body{
     height: 100%; /* Asegura que ocupe todo el alto */
     border-radius: 10px; /* Mantiene la curvatura del article */
 }
+
+@media screen and (max-width: 768px) {
+	.seccion{
+		width: 200px;
+	}
+
+	.columnaDerecha{
+		width: 180px;
+	}
+
+	.cubeDos{
+		display: none;
+	}
+}
