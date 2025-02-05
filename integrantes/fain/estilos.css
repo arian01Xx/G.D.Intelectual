@@ -514,3 +514,30 @@ iframe{
 	box-shadow: 6px 6px 15px #00ffed;
 	font-family: arial;
 }
+
+/*################################################################*/
+body{
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+}
+
+/*####################################################################*/
+img{
+	border-radius: 15px;  /* Bordes redondeados */
+    box-shadow:  6px 6px 15px #00ffed; 
+	float:left;
+	width: 200px;
+}
+
+.textosPrincipales{
+	font-family: "Consola", monospace;
+}
+
+.link{
+	color:green;
+}
+
+h1, h2, p{
+	text-align: center;
+}

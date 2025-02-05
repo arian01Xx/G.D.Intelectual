@@ -534,11 +534,11 @@ body{
 
 @media screen and (max-width: 768px) {
 	.seccion{
-		width: 200px;
+		width: 400px;
 	}
 
 	.columnaDerecha{
-		width: 180px;
+		width: 380px;
 	}
 
 	.cubeDos{
