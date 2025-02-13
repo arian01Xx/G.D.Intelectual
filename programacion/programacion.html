@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>programacion</title>
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+	<section>
+		<article>
+			<h1>Maximización de Puntuaciones</h1>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/SfPKVgSil7s?si=8uGb8Yy-c0hBsXj4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<h2>El problema maxScore de LeetCode consiste en encontrar la máxima suma posible de un subconjunto de elementos de un array, normalmente optimizando el uso de prefijos o sufijos. Para resolverlo, se pueden utilizar estrategias como sliding window, heaps o programación dinámica, dependiendo de las restricciones del problema.</h2>
+		</article>
+		<article>
+			<h1>Cartografía Algorítmica: Construcción Óptima del Mapa de Elevaciones</h1>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/6v1UwBJ7xGo?si=nfspm56sMVCPbOce" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<h2>El problema Map of Highest Peak de LeetCode requiere generar un mapa de alturas a partir de celdas de agua (altura 0), asegurando que las elevaciones aumenten óptimamente. Se resuelve eficientemente con BFS (Breadth-First Search), propagando las alturas desde las fuentes iniciales en niveles, similar a una expansión de ondas.</h2>
+		</article>
+	</section>
+	<section>
+		<article>
+			<h1>Exploración Recursiva y Estrategias de Retroceso</h1>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/ggrPYvjPZuM?si=qc-Xrb52_Y6t5Yx9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<h2>El algoritmo Depth-First Search (DFS) recorre estructuras de datos como grafos o árboles explorando cada rama hasta su máxima profundidad antes de retroceder. Se usa en problemas de búsqueda, recorrido y backtracking, permitiendo explorar todas las posibles soluciones de manera eficiente mediante recursión o una pila explícita.</h2>
+		</article>
+		<article class="nodos">
+			<canvas id="canvas"></canvas>
+			<script>
+				const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Configuración de las partículas
+        const particles = [];
+        const numParticles = 600;
+        const mouse = { x: null, y: null, radius: 100 };
+
+        // Colores aleatorios
+        const colors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#33FFF5"];
+
+        // Clase para las partículas
+        class Particle {
+            constructor(x, y, radius, color, velocity) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.color = color;
+                this.velocity = velocity;
+                this.baseX = x;
+                this.baseY = y;
+                this.density = (Math.random() * 10) + 5;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            update() {
+                // Movimiento base
+                this.x += this.velocity.x;
+                this.y += this.velocity.y;
+
+                // Rebote en los bordes
+                if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+                    this.velocity.x = -this.velocity.x;
+                }
+                if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
+                    this.velocity.y = -this.velocity.y;
+                }
+
+                // Interacción con el mouse
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < mouse.radius) {
+                    const force = (mouse.radius - distance) / mouse.radius;
+                    const angle = Math.atan2(dy, dx);
+                    this.x -= force * Math.cos(angle) * 5;
+                    this.y -= force * Math.sin(angle) * 5;
+                } else {
+                    // Vuelve a la posición base
+                    if (this.x !== this.baseX) {
+                        const dx = this.baseX - this.x;
+                        this.x += dx / 10;
+                    }
+                    if (this.y !== this.baseY) {
+                        const dy = this.baseY - this.y;
+                        this.y += dy / 10;
+                    }
+                }
+
+                this.draw();
+            }
+        }
+
+        // Crear partículas
+        function init() {
+            particles.length = 0;
+            for (let i = 0; i < numParticles; i++) {
+                const radius = (Math.random() * 3) + 1;
+                const x = Math.random() * (canvas.width - radius * 2) + radius;
+                const y = Math.random() * (canvas.height - radius * 2) + radius;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const velocity = {
+                    x: (Math.random() - 0.5) * 2,
+                    y: (Math.random() - 0.5) * 2
+                };
+                particles.push(new Particle(x, y, radius, color, velocity));
+            }
+        }
+
+        // Animación
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dibujar y actualizar partículas
+            particles.forEach(particle => {
+                particle.update();
+            });
+
+            // Conectar partículas cercanas
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = particles[i].color;
+                        ctx.lineWidth = 0.2;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                        ctx.closePath();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        // Interacción con el mouse
+        canvas.addEventListener("mousemove", (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        canvas.addEventListener("mouseout", () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        // Inicializar y animar
+        init();
+        animate();
+
+        // Ajustar el tamaño del canvas al cambiar el tamaño de la ventana
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+			</script>
+		</article>
+	</section>
+</body>
+</html>

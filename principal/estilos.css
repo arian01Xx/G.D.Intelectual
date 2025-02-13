@@ -515,7 +515,7 @@ body{
 }
 
 .articleAnimacion {
-    width: 100%;  /* Asegura que el article ocupe todo el espacio */
+    width: 93%;  /* Asegura que el article ocupe todo el espacio */
     height: 300px; /* Puedes cambiar la altura según lo que necesites */
     position: relative; /* Permite que el canvas se posicione dentro */
     overflow: hidden; /* Evita que se salga contenido */

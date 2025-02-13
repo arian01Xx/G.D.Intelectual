@@ -16,6 +16,7 @@ h1{
 	font-weight: bold;
 	margin-right: 20px;
 }
+
 h2{
 	font: bold 14px sans-serif;
 }
@@ -45,10 +46,60 @@ body{
 	top: 0;
 	position: fixed;
 }
-.cabecera h1{
-	font-size: xx-large;
-	color: white;
+
+
+
+/*########################################################################################*/
+/*########################################################################################*/
+/*########################################################################################*/
+/*AQUI LA ANIMACION GLTICH PARA EL TITULO*/
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+
+.cabecera h1{ /*ESTE ES LA FUENTE DE G.D.INTELECTUAL*/
+	font-family: 'Orbitron', sans-serif;
+    font-size: 33px;
+            color: #0ff;
+            text-transform: uppercase;
+            position: relative;
+            text-shadow: 
+                0 0 5px #0ff, 
+                0 0 10px #0ff, 
+                0 0 20px #0ff,
+                -2px 2px 5px rgba(255, 0, 255, 0.8), 
+                2px -2px 5px rgba(0, 255, 255, 0.8);
+            animation: glitch 0.8s infinite;
 }
+
+@keyframes glitch {
+            0% {
+                text-shadow: 2px 2px 0px #f00, -2px -2px 0px #0ff;
+                transform: skew(0deg);
+            }
+            20% {
+                text-shadow: -2px -2px 0px #f00, 2px 2px 0px #0ff;
+            }
+            40% {
+                text-shadow: 2px -2px 0px #f00, -2px 2px 0px #0ff;
+                transform: skew(2deg);
+            }
+            60% {
+                text-shadow: -2px 2px 0px #f00, 2px -2px 0px #0ff;
+                transform: skew(-2deg);
+            }
+            80% {
+                text-shadow: 2px 2px 0px #f00, -2px -2px 0px #0ff;
+                transform: skew(0deg);
+            }
+            100% {
+                text-shadow: -2px -2px 0px #f00, 2px 2px 0px #0ff;
+            }
+}
+
+/*########################################################################################*/
+/*########################################################################################*/
+/*########################################################################################*/
 
 .menuDos{
 	background: #8296f9;
