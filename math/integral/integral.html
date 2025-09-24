@@ -3,33 +3,132 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>asiain</title>
+	<title>calculo integral</title>
+
+	<!-- CONFIGURACION MATHJAX-->
+	<script>
+		window.MathJax={
+			tex:{
+				macros:{
+					arccot: "\\operatorname{arccot}",
+					arcsec: "\\operatorname{arcsec}",
+					arccsc: "\\operatorname{arccsc}",
+					sen: "\\operatorname{sen}"
+				}
+			}
+		};
+	</script>
+
+	<!-- AQUI VA MATHJAX -->
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <!-- 
+    \( x^2 \) ->inline 
+    \[ x^2 \] ->centrado y grande
+    -->
+
+
 	<link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-	<section class="clasesRedes">
+	<section class="clasesRedes"> <!-- ESTE VA A LA DERECHA -->
 		<article class="redesredes">
 			<hgroup>
-				<h1>Hi there, I'm Monica Asiain 👋</h1>
-				<h2>México</h2>
+				<h1>TEOREMA FUNDAMENTAL DEL CALCULO</h1>
+				<h2>Consecuencias de la derivada</h2>
 			</hgroup>
-			<p class="textosPrincipales">
-				<img src="espiritu.jpg" class="perfil" alt="">
-				Nos conocimos hace varios años, tantos que al recordar cuan rapido a pasado el tiempo simplemente me sorprende. Me invitaron a formar parte de gdintelectual despues de una amena charla de diferentes temas.<br> Soy amante de la espiritualidad y de la conexión humana, de la armonía y de la mente humana. Priorizo la armonia social sobre todas las cosas, así como una curiosidad inmensa sobre la psique humana y todo lo relacionada al alma. Me parece tener una intuición muy desarrollada.<br> Soy psicóloga de profesion y sobre todo, amo purificar el alma.<br> Creo que ENFJ.
+			<p>
+				<img src="fudamento.gif" alt="Gráfico de la pendiente" width="300">
+				El \(\text{Teorema Fundamental del Cálculo}\) establece la conexión entre derivadas e integrales:  
+				La integral definida de una función continua es igual a la diferencia de los valores de su primitiva en los extremos.  
+				<br>
+				\[\int_a^b f(x)\,dx = F(b) - F(a)\]
+				<br>
+				donde \(F(x)\) es una función tal que \(F'(x) = f(x)\).  
+				De esta manera, el cálculo integral y el diferencial quedan unidos en un mismo marco matemático.
 			</p>
-			<h2><a href="" target="_blank" class="link">MIS REDES</a>
 		</article>
 		<article class="redesredes">
 			<hgroup>
-				<h1>OTRA ANIMACION JS</h1>
+				<h1>INTRODUCCION INTEGRALES</h1>
+				<h2>Interpretaciónes</h2>
 			</hgroup>
+			<p class="textosPrincipales">
+				La \(\text{integral}\) se entiende como la \(\text{inversa de la derivada}\).  
+				\[f(x) = x^2 \quad \Rightarrow \quad f'(x) = 2x\]
+				Entonces, integrar devuelve la función original (más una constante):  
+				\[\int 2x \, dx = x^2 + C\]
+				---
+				Otra interpretación de la integral es el \(\text{área bajo la curva}\) entre \(a\) y \(b\).  Se aproxima dividiendo el intervalo en muchos rectángulos:  
+				\[\sum_{i=1}^{n} f(x_i) \cdot \Delta x\]
+				Al tomar cada vez más rectángulos (\(\Delta x \to 0\), \(n \to \infty\)) se obtiene la definición formal de la integral definida:  
+				\[\int_a^b f(x)\,dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i)\,\Delta x\]
+			</p>
+		</article>
+		<article class="redesredes">
+			<hgroup>
+				<h1>REGLA DE LA CADENA</h1>
+			</hgroup>
+			<p class="textosPrincipales">
+				La <b>regla de la cadena</b> en integrales se usa cuando tenemos una función compuesta del tipo \( f(g(x)) \cdot g'(x) \).  
+				En ese caso:
+				\[\int f(g(x)) \, g'(x) \, dx = F(g(x)) + C\]
+				donde \(F\) es una primitiva de \(f\).
+				<b>Ejemplo:</b>
+				\[\int 2x \cos(x^2) \, dx\]
+				Hacemos el cambio \( u = x^2 \), entonces \( du = 2x \, dx \).  
+				La integral se convierte en:
+				\[\int \cos(u) \, du = \sin(u) + C\]
+				Reemplazamos \( u = x^2 \):
+				\[\int 2x \cos(x^2) \, dx = \sin(x^2) + C\]
+			</p>
 		</article>
 	</section>
 	<section class="clasesRedes">
 		<article class="redesredes">
 			<hgroup>
-				<h1>ANIMACION JAVASCRIPT</h1>
+				<h1>TENDIENDO A LO INFINITAMENTE PEQUEÑO</h1>
+				<h2>para encontrar el area bajo una curva</h2>
 			</hgroup>
+			<p>
+				<img src="bajo.gif" alt="area bajo la curva" width="300">
+				La <b>sumatoria de Riemann</b> es un método para aproximar el área bajo una curva. 
+				Se divide el intervalo \([a,b]\) en \(n\) subintervalos de ancho \(\Delta x = \frac{b-a}{n}\).  
+				En cada subintervalo se toma un punto \(x_i^*\) y se evalúa la función \(f(x)\).  
+				La suma de las áreas de los rectángulos formados es:
+				\[S_n = \sum_{i=1}^{n} f(x_i^*) \, \Delta x\]
+				Cuando el número de particiones \(n\) crece indefinidamente, los rectángulos se vuelven más delgados y la suma se aproxima al área exacta bajo la curva.  
+				El límite de estas sumas es lo que definimos como la <b>integral definida</b>:
+				\[\int_a^b f(x) \, dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*) \, \Delta x\]
+				De esta manera, la integral representa el área exacta bajo la gráfica de \(f(x)\) entre \(x=a\) y \(x=b\).
+			</p>
+		</article>
+		<article class="redesredes">
+			<hgroup>
+				<h1>INTEGRALES PRIMARIOS</h1>
+			</hgroup>
+			<p>
+				\[\int k \, dx = kx + C\]
+				\[\int x^n \, dx = \frac{x^{n+1}}{n+1} + C \quad (n \neq -1)\]
+				\[\int \frac{1}{x} \, dx = \ln |x| + C\]
+				\[\int e^x \, dx = e^x + C\]
+				\[\int a^x \, dx = \frac{a^x}{\ln a} + C \quad (a>0, a \neq 1)\]
+				\[\int \sin x \, dx = -\cos x + C\]
+				\[\int \cos x \, dx = \sin x + C\]
+				\[\int \sec^2 x \, dx = \tan x + C\]
+				\[\int \csc^2 x \, dx = -\cot x + C\]
+				\[\int \sec x \tan x \, dx = \sec x + C\]
+				\[\int \csc x \cot x \, dx = -\csc x + C\]
+				\[\int \frac{1}{\sqrt{1-x^2}} \, dx = \arcsin x + C\]
+				\[\int \frac{-1}{\sqrt{1-x^2}} \, dx = \arccos x + C\]
+				\[\int \frac{1}{1+x^2} \, dx = \arctan x + C\]
+				\[\int \frac{-1}{1+x^2} \, dx = \text{arccot}\, x + C\]
+				\[\int \frac{1}{x\sqrt{x^2-1}} \, dx = \arcsec x + C\]
+			\[\int \frac{-1}{x\sqrt{x^2-1}} \, dx = \arccsc x + C\]
+		    </p>
 		</article>
 	</section>
 </body>

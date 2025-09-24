@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>asiain</title>
+	<title>calculo diferencial</title>
 
 	<!-- CONFIGURACION MATHJAX-->
 	<script>
@@ -22,7 +22,7 @@
 	<!-- AQUI VA MATHJAX -->
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer>
     </script>
 
     <!-- 
@@ -35,45 +35,21 @@
 <body>
 	<section class="clasesRedes">
 		<article class="redesredes">
-			<hgroup>
-				<h1>FUNCIONES TRIGONOMETRICAS INVERSAS</h1>
-				<h2>Conocimientos previos de repaso.</h2>
-			</hgroup>
+			<hgroup><h1>APLICACIONES GEOMETRICAS DE LAS DERIVADAS</h1></hgroup>
+			<img src="tangente.webp" alt="Gráfico de la pendiente" width="300">
 			<p class="textosPrincipales">
-				Función inversa de \(y=\sin(x)\) -> \(x=\arcsin(y)\).
-				<br>
-				Si se considera el arco tangente:
-				\(x=\arcsin(y)\).
-				<br>
-				A veces \(y=\arcsin(x)\) es igual a \(y=\sin^{-1}(x)\).
-				<br>
-				El valor de seno esta definidio para cualquier valor de x en que \(-1 \leq x \leq 1\). <!-- \quad es separacion -->
-				<br> 
-				<h2>DERIVADAS DE LAS FUNCIONES INVERSAS</h2>
-				\[
-				1)\quad \frac{d}{dx} \arcsin(u) \;=\; \frac{1}{\sqrt{\,1 - u^2\,}} \cdot \frac{du}{dx}
-				\]
-				<br>
-				\[
-				2)\quad \frac{d}{dx} \arccos(u) \;=\; -\frac{1}{\sqrt{\,1 - u^2\,}} \cdot \frac{du}{dx}
-				\]
-				<br>
-				\[
-				3)\quad \frac{d}{dx} \arctan(u) \;=\; \frac{1}{1 + u^2} \cdot \frac{du}{dx}
-				\]
-				<br>
-				\[
-				4)\quad \frac{d}{dx} \arccot(u) \;=\; -\frac{1}{1 + u^2} \cdot \frac{du}{dx}
-				\]
-				<br>
-				\[
-				5)\quad \frac{d}{dx} \arcsec(u) \;=\; \frac{1}{u \cdot \sqrt{\,u^2 - 1}} \cdot \frac{du}{dx}
-				\]
-				<br>
-				\[
-				6)\quad \frac{d}{dx} \arccsc(u) \;=\; -\frac{1}{u \cdot \sqrt{\,u^2 - 1}} \cdot \frac{du}{dx}
-				\]
-				<br>
+				La pendiente de una recta tangente se define como  
+				\[m = \tan(\alpha)\]
+				Cuando \(\alpha \to 0\), se cumple que  \[m = \tan(\alpha) = \frac{\Delta y}{\Delta x}\]
+				Es decir, la pendiente es el cociente entre el incremento en \(y\) y el incremento en \(x\).  
+				De esta manera se obtiene la ecuación de la recta tangente en un punto \((x_0, y_0)\):  
+				\[y - y_0 = m(x - x_0)\]
+
+				Recta tangente:
+				\[\quad y - y_0 = f'(x_0)\,(x - x_0)\]
+				Recta normal:
+				\[\quad y - y_0 = -\frac{1}{f'(x_0)}\,(x - x_0)\]
+
 			</p>
 		</article>
 		<article class="redesredes">
@@ -137,6 +113,82 @@
 
 			</p>
 		</article>
+		<article class="redesredes">
+			<hgroup>
+				<h1>DERIVADAS DE FUNCIONES TRIGONOMETRICAS</h1>
+			</hgroup>
+			<p>
+				Las derivadas de funciones trigonométricas surgen aplicando reglas primarias + la regla de la cadena.
+				Primero se obtienen las formas simples (sin x, cos x, tan x) y después se generalizan a funciones compuestas (sin(f(x)), cos(f(x)), ...).<br>
+				<br>
+				1. Seno de x:
+				\[\quad \frac{d}{dx}\big(\sin x\big) = \cos x\]
+				2. Seno de una función: 
+				\[\quad \frac{d}{dx}\big(\sin(f(x))\big) = \cos(f(x)) \cdot f'(x)\]
+				3. Coseno de x:
+				\[\quad \frac{d}{dx}\big(\cos x\big) = -\sin x\]
+				4. Coseno de una función:
+				\[\quad \frac{d}{dx}\big(\cos(f(x))\big) = -\sin(f(x)) \cdot f'(x)\]
+				5. Tangente de x:
+				\[\quad \frac{d}{dx}\big(\tan x\big) = \sec^2 x\]
+				6. Tangente de una función:
+				\[\quad \frac{d}{dx}\big(\tan(f(x))\big) = \sec^2(f(x)) \cdot f'(x)\]
+				7. Cotangente de x:
+				\[\quad \frac{d}{dx}\big(\cot x\big) = -\csc^2 x\]
+				8. Cotangente de una función:
+				\[\quad \frac{d}{dx}\big(\cot(f(x))\big) = -\csc^2(f(x)) \cdot f'(x)\]
+				9. Secante de x:
+				\[\quad \frac{d}{dx}\big(\sec x\big) = \sec x \cdot \tan x\]
+				10. Secante de una función:
+				\[\quad \frac{d}{dx}\big(\sec(f(x))\big) = \sec(f(x)) \cdot \tan(f(x)) \cdot f'(x)\]
+				11. Cosecante de x:
+				\[\quad \frac{d}{dx}\big(\csc x\big) = -\csc x \cdot \cot x\]
+				12. Cosecante de una función:
+				\[\quad \frac{d}{dx}\big(\csc(f(x))\big) = -\csc(f(x)) \cdot \cot(f(x)) \cdot f'(x)\]
+
+			</p>
+		</article>
+		<article class="redesredes">
+			<hgroup>
+				<h1>DERIVADAS PRIMARIAS</h1>
+			</hgroup>
+			<p class="textosPrincipales">
+				El concepto de límite en cálculo describe el valor al que se aproxima una función cuando la variable independiente se acerca a un punto.
+
+				En trigonometría, hay dos límites fundamentales:
+
+				1) \[\lim_{\alpha \to 0} \frac{\sin \alpha}{\alpha} = 1\]
+				Este límite es esencial porque permite definir la derivada de sin 𝑥 en 𝑥 = 0.
+				2) \[\lim_{h \to 0} \frac{\cos h - 1}{h} = 0\]
+				Este aparece al calcular la derivada de cos x en x = 0.
+				Ambos son la base para demostrar derivadas de funcions primarias y trigonometricas cuando su comportamiento se acerca a 0.
+
+				Las derivadas primarias son reglas fundamentales que permiten calcular la derivada de funciones más complejas a partir de expresiones simples.
+				Son la base del cálculo diferencial y se aplican en combinación para derivar prácticamente cualquier función.				
+				1. Derivada de una constante:
+				\[\quad \frac{d}{dx}(c) = 0\]
+				2. Derivada de una variable:
+				\[\quad \frac{d}{dx}(x) = 1\]
+				3. Derivada de suma y diferencia:
+				\[\quad \frac{d}{dx}(u + v - w) = \frac{du}{dx} + \frac{dv}{dx} - \frac{dw}{dx}\]
+				4. Derivada por una constante por función:
+				\[\quad \frac{d}{dx}(c \cdot v) = c \cdot \frac{dv}{dx}\]
+				5. Derivada por una potencia:
+				\[\quad \frac{d}{dx}(u^n) = n \, u^{\,n-1} \cdot \frac{du}{dx}\]
+				6. Derivada por un producto:
+				\[\quad \frac{d}{dx}(uv) = u \cdot \frac{dv}{dx} + v \cdot \frac{du}{dx}\]
+				7. Derivada por un cociente:
+				\[\quad \frac{d}{dx}\!\left(\frac{u}{v}\right) = \frac{v \cdot \frac{du}{dx} - u \cdot \frac{dv}{dx}}{v^2}\]
+				8. Derivada por cociente con constante:
+				\[\quad \frac{d}{dx}\!\left(\frac{u}{c}\right) = \frac{1}{c} \cdot \frac{du}{dx}\]
+				9. Derivada Raiz cuadrada de una función:
+				\[\quad \frac{d}{dx}(\sqrt{u}) = \frac{1}{2\sqrt{u}} \cdot \frac{du}{dx}\]
+				10. Derivada de raiz cuadrada de x:
+				\[\quad \frac{d}{dx}(\sqrt{x}) = \frac{1}{2\sqrt{x}}\]
+				11. Regla de cadena:
+				\[\quad \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}\]
+			</p>
+		</article>
 	</section> <!-- CADA SECCION LLEVA DOS ARTICLE, y UNO VA DEBAJO DE OTRA-->
 	<section class="clasesRedes">
 		<article class="redesredes">
@@ -144,74 +196,26 @@
 				<h1>FUNCIONES TRIGONOMETRICAS INVERSAS CON SU RAMO PRINCIPAL</h1>
 			</hgroup>
 			<p class="ramos">
-				\(
-\text{Función: } y = \arcsin(x)
-\)
-\(
-\text{Rama principal: } -\tfrac{\pi}{2} \leq y \leq \tfrac{\pi}{2}
-\)
-|
-\(
--90^\circ \leq y \leq 90^\circ
-\)<br>
-
-\(
-\text{Función: } y = \arccos(x)
-\)
-\(
-\text{Rama principal: } 0 \leq y \leq \pi
-\)
-|
-\(
-0^\circ \leq y \leq 180^\circ
-\)<br>
-
-\(
-\text{Función: } y = \arctan(x)
-\)
-\(
-\text{Rama principal: } -\tfrac{\pi}{2} < y < \tfrac{\pi}{2}
-\)
-|
-\(
--90^\circ < y < 90^\circ
-\)<br>
-
-\(
-\text{Función: } y = \arccot(x)
-\)
-\(
-\text{Rama principal: } 0 < y < \pi
-\)
-|
-\(
-0^\circ < y < 180^\circ
-\)<br>
-
-\(
-\text{Función: } y = \arcsec(x)
-\)
-\(
-\text{Rama principal: } 0 \leq y < \tfrac{\pi}{2} \;\; \cup \;\; \tfrac{\pi}{2} < y \leq \pi
-\)
-|
-\(
-0^\circ \leq y < 90^\circ \;\; \cup \;\; 90^\circ < y \leq 180^\circ
-\)<br>
-
-\(
-\text{Función: } y = \arccsc(x)
-\)
-\(
-\text{Rama principal: } -\tfrac{\pi}{2} \leq y < 0 \;\; \cup \;\; 0 < y \leq \tfrac{\pi}{2}
-\)
-|
-\(
--90^\circ \leq y < 0^\circ \;\; \cup \;\; 0^\circ < y \leq 90^\circ
-\)
+				\(\text{Función: } y = \arcsin(x)\)
+				\(\text{Rama principal: } -\tfrac{\pi}{2} \leq y \leq \tfrac{\pi}{2}\)|\(-90^\circ \leq y \leq 90^\circ\)<br>
+				\(\text{Función: } y = \arccos(x)\)
+				\(\text{Rama principal: } 0 \leq y \leq \pi\)|
+				\(0^\circ \leq y \leq 180^\circ\)<br>
+				\(\text{Función: } y = \arctan(x)\)
+				\(\text{Rama principal: } -\tfrac{\pi}{2} < y < \tfrac{\pi}{2}\)|
+				\(-90^\circ < y < 90^\circ\)<br>
+				\(\text{Función: } y = \arccot(x)\)
+				\(\text{Rama principal: } 0 < y < \pi\)|
+				\(0^\circ < y < 180^\circ\)<br>
+				\(\text{Función: } y = \arcsec(x)\)
+				\(\text{Rama principal: } 0 \leq y < \tfrac{\pi}{2} \;\; \cup \;\; \tfrac{\pi}{2} < y \leq \pi\)|
+				\(0^\circ \leq y < 90^\circ \;\; \cup \;\; 90^\circ < y \leq 180^\circ\)<br>
+				\(\text{Función: } y = \arccsc(x)\)
+				\(\text{Rama principal: } -\tfrac{\pi}{2} \leq y < 0 \;\; \cup \;\; 0 < y \leq \tfrac{\pi}{2}\)|
+				\(-90^\circ \leq y < 0^\circ \;\; \cup \;\; 0^\circ < y \leq 90^\circ\)
 
 			</p>
-		</article>
+		</article> <!-- CALCULADORA
 		<article class="redesredes">
 			<hgroup>
 				<h1>CALCULADORA GRAFICA</h1>
@@ -220,40 +224,152 @@
 				<script>
 					var elt = document.getElementById('calculator');
 					var calculator = Desmos.GraphingCalculator(elt);
-					calculator.setExpression({ id: 'graph1', latex: 'y=arcsin(x)' });
-					calculator.setExpression({ id: 'graph2', latex: 'y=arccos(x)' });
-					calculator.setExpression({ id: 'graph3', latex: 'y=arctan(x)' });
-					calculator.setExpression({ id: 'graph4', latex: 'y=arccot(x)' });
-					calculator.setExpression({ id: 'graph5', latex: 'y=arcsec(x)' });
-				    calculator.setExpression({ id: 'graph6', latex: 'y=arccsc(x)' });
+					calculator.setExpression({ id: 'graph1', latex: 'y=x^2' });
+					calculator.setExpression({ id: 'graph2', latex: 'y=x^3+2' });
 			    </script>
-
 			</hgroup>
+		</article> -->
+	</section>
+	<section class="clasesRedes">
+		<article class="redesredes">
+			<hgroup>
+				<h1>FUNCIONES RECIPROCAS</h1>
+			</hgroup>
+			<p class="textosPrincipales">
+				Las funciones recíprocas en trigonometría son pares de funciones que multiplicadas siempre dan 1, porque una es la inversa de la otra:
+				\[
+				\sin A \cdot \csc A = 1
+				\qquad \Longrightarrow \qquad
+				\csc A = \frac{1}{\sin A}, \quad
+				\sin A = \frac{1}{\csc A}
+				\]
+				\[
+				\cos A \cdot \sec A = 1
+				\qquad \Longrightarrow \qquad
+				\sec A = \frac{1}{\cos A}, \quad
+				\cos A = \frac{1}{\sec A}
+				\]
+				\[
+				\tan A \cdot \cot A = 1
+				\qquad \Longrightarrow \qquad
+				\cot A = \frac{1}{\tan A}, \quad
+				\tan A = \frac{1}{\cot A}
+				\]
+			</p>
+		</article>
+		<article class="redesredes">
+			<hgroup>
+			  <h1>FUNCIONES DE ANGULOS COMPLEMENTARIOS</h1>	
+			</hgroup>
+			<p class="textosPrincipales">
+				Las identidades de ángulos complementarios relacionan funciones trigonométricas de un ángulo con las de su complemento \((90^\circ - A)\):
+					\[\sin A = \cos\!\left(90^\circ - A\right) = \cos\!\left(\tfrac{\pi}{2} - A\right)\]
+					\[\cos A = \sin\!\left(90^\circ - A\right) = \sin\!\left(\tfrac{\pi}{2} - A\right)\]
+					\[\tan A = \cot\!\left(90^\circ - A\right) = \cot\!\left(\tfrac{\pi}{2} - A\right)\]
+					\[\cot A = \tan\!\left(90^\circ - A\right) = \tan\!\left(\tfrac{\pi}{2} - A\right)\]
+					\[\sec A = \csc\!\left(90^\circ - A\right) = \csc\!\left(\tfrac{\pi}{2} - A\right)\]
+					\[\csc A = \sec\!\left(90^\circ - A\right) = \sec\!\left(\tfrac{\pi}{2} - A\right)\]
+			</p>
 		</article>
 	</section>
 	<section class="clasesRedes">
 		<article class="redesredes">
 			<hgroup>
-				<h1>ANIMACION JAVASCRIPT</h1>
+				<h1>FUNCIONES TRIGONOMETRICAS INVERSAS</h1>
+				<h2>Conocimientos previos de repaso.</h2>
 			</hgroup>
-		</article>
-		<article class="redesredes">
-			<hgroup>
-				
-			</hgroup>
+			<p class="textosPrincipales">
+				Función inversa de \(y=\sin(x)\) -> \(x=\arcsin(y)\).
+				<br>
+				Si se considera el arco tangente:
+				\(x=\arcsin(y)\).
+				<br>
+				A veces \(y=\arcsin(x)\) es igual a \(y=\sin^{-1}(x)\).
+				<br>
+				El valor de seno esta definidio para cualquier valor de x en que \(-1 \leq x \leq 1\). <!-- \quad es separacion -->
+				<br> 
+				<h2>DERIVADAS DE LAS FUNCIONES INVERSAS</h2>
+				\[
+				1)\quad \frac{d}{dx} \arcsin(u) \;=\; \frac{1}{\sqrt{\,1 - u^2\,}} \cdot \frac{du}{dx}
+				\]
+				<br>
+				\[
+				2)\quad \frac{d}{dx} \arccos(u) \;=\; -\frac{1}{\sqrt{\,1 - u^2\,}} \cdot \frac{du}{dx}
+				\]
+				<br>
+				\[
+				3)\quad \frac{d}{dx} \arctan(u) \;=\; \frac{1}{1 + u^2} \cdot \frac{du}{dx}
+				\]
+				<br>
+				\[
+				4)\quad \frac{d}{dx} \arccot(u) \;=\; -\frac{1}{1 + u^2} \cdot \frac{du}{dx}
+				\]
+				<br>
+				\[
+				5)\quad \frac{d}{dx} \arcsec(u) \;=\; \frac{1}{u \cdot \sqrt{\,u^2 - 1}} \cdot \frac{du}{dx}
+				\]
+				<br>
+				\[
+				6)\quad \frac{d}{dx} \arccsc(u) \;=\; -\frac{1}{u \cdot \sqrt{\,u^2 - 1}} \cdot \frac{du}{dx}
+				\]
+				<br>
+			</p>
 		</article>
 	</section>
 	<section class="clasesRedes">
 		<article class="redesredes">
 			<hgroup>
-				<h1>ANIMACION JAVASCRIPT</h1>
+				<h1>
+					LOGARITMOS BREVE REPASO
+				</h1>
 			</hgroup>
+			<p class="textosPrincipales">
+				Las funciones logarítmicas tienen derivadas que dependen de la \textbf{regla de la cadena} y de la base del logaritmo.  
+				\[\text{Caso especial:} \quad \frac{d}{dx}(\ln x) = \frac{1}{x}, \quad x > 0\]
+				\[\text{Para logaritmos en base } a: \quad \frac{d}{dx}(\log_a x) = \frac{1}{x \ln a}, \quad a > 0, \; a \neq 1\]
+				Estas son la base de todas las demás fórmulas.
+			</p>
 		</article>
 		<article class="redesredes">
 			<hgroup>
-				
+				<h1>
+					DERIVADAS DE FUNCIONES LOGARITMICAS
+				</h1>
 			</hgroup>
+			<p class="textosPrincipales">
+				El breve repaso de los logaritmos nos dan las bases que consecuan a sus siguientes derivadas:
+					\[\textbf{1.} \quad \log_a(1) = 0\]
+					\[\textbf{2.} \quad \log_a(a) = 1\]
+					\[\textbf{3.} \quad \log_a(a^x) = x\]
+					\[\textbf{4.} \quad a^{\log_a x} = x\]
+					\[\textbf{5.} \quad \log_a(xy) = \log_a x + \log_a y\]
+					\[\textbf{6.} \quad \log_a\!\left(\frac{x}{y}\right) = \log_a x - \log_a y\]
+					\[\textbf{7.} \quad \log_a(x^n) = n \cdot \log_a x\]
+					\[\textbf{8.} \quad \log_a\!\left(\sqrt[n]{x}\right) = \frac{1}{n} \log_a x\]
+					\[\textbf{9.} \quad \log_{a^n}(x) = \frac{1}{n} \log_a x\]
+					\[\textbf{10.} \quad \log_a x = \frac{\ln x}{\ln a}\]
+					\[\textbf{11.} \quad \log_a b = \frac{1}{\log_b a}\]
+			</p>
 		</article>
-	</section>
+		<article class="redesredes">
+		  <hgroup><h1>CRITERIOS PARA DETERMINAR EXTREMOS RELATIVOS</h1></hgroup>
+		  <p class="textosPrincipales">Un máximo relativo ocurre en un punto donde la función alcanza un valor mayor que en sus alrededores,  
+		  	y un minimo relativo donde la función toma un valor menor que en sus alrededores.  
+		  	\[\text{Si } f'(x_0) = 0 \quad \Rightarrow \quad \text{posible máximo o mínimo en } x_0.\]
+		  	\[\textbf{Ejemplo: } f(x) = x^2\]
+		  	\[f'(x) = 2x \quad \Rightarrow \quad f'(0)=0\]
+		  	\[f''(x) = 2 > 0 \quad \Rightarrow \quad \text{mínimo relativo en } x=0.\]---
+		  	Criterio de la segunda derivada:  
+		  	\[f''(x_0) > 0 \;\; \Rightarrow \;\; \text{mínimo relativo en } x_0\]
+		  	\[f''(x_0) < 0 \;\; \Rightarrow \;\; \text{máximo relativo en } x_0\]
+		  	\[f''(x_0) = 0 \;\; \Rightarrow \;\; \text{indeterminado (se revisa más con derivadas superiores).}\]---
+		  	Criterio de la tercera derivada (generalización):  Si se cumple que  
+		  	\[f'(x_0) = f''(x_0) = \dots = f^{(n-1)}(x_0) = 0, \quad f^{(n)}(x_0) \neq 0\]
+		  	- Si \(n\) es par y \(f^{(n)}(x_0) > 0 \;\;\Rightarrow\;\; \text{mínimo relativo.}\)  
+		  	- Si \(n\) es par y \(f^{(n)}(x_0) < 0 \;\;\Rightarrow\;\; \text{máximo relativo.}\)  
+		  	- Si \(n\) es impar \(\;\Rightarrow\;\) no hay máximo ni mínimo, sino punto de inflexión.
+		  </p>
+		</article>
+	</section>	
 </body>
 </html>
