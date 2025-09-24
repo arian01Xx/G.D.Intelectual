@@ -1,0 +1,29 @@
+git status
+git add .
+git commit -m "mucho texto"
+git push origin master
+
+/////////////////////////////////////////////////////////////////////
+USO DE QT GUI PARA C++
+para compilador MinGW:
+g++ main.cpp -o app $(pkg-config --cflags --libs Qt6Widgets)
+
+se instala usando MSYS2 instalado en windows.
+pacman -Syu //primero se actualiza todo (cerrar y volver a abrir)
+
+//instalar Qt6 y herramientas
+pacman -S mingw-w64-x86_64-qt6-base
+pacman -S mingw-w64-x86_64-qt6-tools
+pacman -S mingw-w64-x86_64-pkg-config
+
+permite usar el comando compilador 
+./app.exe o ./app
+
+Nota importante
+
+En Windows, al ejecutar tu app.exe puede pedir .dll de Qt6.
+Por defecto están en:
+C:\msys64\mingw64\bin
+
+//////////////////////////////////////////////////////////////////////
+CMAKE - SCRIPT CMAKE

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>asiain</title>
+
+	<!-- CONFIGURACION MATHJAX-->
+	<script>
+		window.MathJax={
+			tex:{
+				macros:{
+					arccot: "\\operatorname{arccot}",
+					arcsec: "\\operatorname{arcsec}",
+					arccsc: "\\operatorname{arccsc}",
+					sen: "\\operatorname{sen}"
+				}
+			}
+		};
+	</script>
+
+	<!-- AQUI VA MATHJAX -->
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <!-- 
+    \( x^2 \) ->inline 
+    \[ x^2 \] ->centrado y grande
+    -->
+
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+	<section class="clasesRedes">
+		<article class="redesredes">
+			<hgroup>
+				<h1>FUNCIONES TRIGONOMETRICAS INVERSAS</h1>
+				<h2>Conocimientos previos de repaso.</h2>
+			</hgroup>
+			<p class="textosPrincipales">
+				Función inversa de \(y=\sin(x)\) -> \(x=\arcsin(y)\).
+				<br>
+				Si se considera el arco tangente:
+				\(x=\arcsin(y)\).
+				<br>
+				A veces \(y=\arcsin(x)\) es igual a \(y=\sin^{-1}(x)\).
+				<br>
+				El valor de seno esta definidio para cualquier valor de x en que \(-1 \leq x \leq 1\). <!-- \quad es separacion -->
+				<br> 
+				<h2>DERIVADAS DE LAS FUNCIONES INVERSAS</h2>
+				\[
+				1)\quad \frac{d}{dx} \arcsin(u) \;=\; \frac{1}{\sqrt{\,1 - u^2\,}} \cdot \frac{du}{dx}
+				\]
+				<br>
+				\[
+				2)\quad \frac{d}{dx} \arccos(u) \;=\; -\frac{1}{\sqrt{\,1 - u^2\,}} \cdot \frac{du}{dx}
+				\]
+				<br>
+				\[
+				3)\quad \frac{d}{dx} \arctan(u) \;=\; \frac{1}{1 + u^2} \cdot \frac{du}{dx}
+				\]
+				<br>
+				\[
+				4)\quad \frac{d}{dx} \arccot(u) \;=\; -\frac{1}{1 + u^2} \cdot \frac{du}{dx}
+				\]
+				<br>
+				\[
+				5)\quad \frac{d}{dx} \arcsec(u) \;=\; \frac{1}{u \cdot \sqrt{\,u^2 - 1}} \cdot \frac{du}{dx}
+				\]
+				<br>
+				\[
+				6)\quad \frac{d}{dx} \arccsc(u) \;=\; -\frac{1}{u \cdot \sqrt{\,u^2 - 1}} \cdot \frac{du}{dx}
+				\]
+				<br>
+			</p>
+		</article>
+		<article class="redesredes">
+			<hgroup>
+				<h1>SE REPASA UN POCO DE TEORIA DE CONJUNTOS</h1>
+			</hgroup>
+			<p class="textosPrincipales">
+				<h2>INYECTIVIDAD</h2>
+				<h2>1). Primer ejemplo de inyectividad.</h2>
+				<br>
+				Sea \(f:\mathbb{R}\to\mathbb{R}\) definida por \(f(x)=x-1\). Entonces \(f\) es inyectiva.
+				Supongamos \(a,b\in\mathbb{R}\) y \(f(a)=f(b)\). Entonces
+				\[a-1=b-1.\]
+				Sumando \(1\) a ambos lados se obtiene
+				\[a=b.\]
+				Por tanto, si \(f(a)=f(b)\) implica \(a=b\), \(f\) es inyectiva. \(\square\)
+				<br>
+				<h2>2). Segundo ejemplo de inyectividad.</h2>
+				<br>
+				La función \(f:\mathbb{R}\to\mathbb{R}\) dada por \(f(x)=x^2-x+2\) no es inyectiva.
+				Basta encontrar \(a\neq b\) tales que \(f(a)=f(b)\). Tomemos \(a=0\) y \(b=1\). Entonces
+				\[
+				f(0)=0^2-0+2=2,\qquad f(1)=1^2-1+2=2,
+				\]
+				y \(0\neq 1\). Por tanto \(f(0)=f(1)\) con \(0\neq 1\), luego \(f\) no es inyectiva. \(\square\)
+				<br>
+				<h2>SOBREYECTIVIDAD</h2>
+				<h2>1).Primer ejemplo de sobreyectividad.</h2>
+				<br>
+				Sea \(f:\mathbb{R}\to\mathbb{R}\), \(f(x)=x-1\). Entonces \(f\) es sobreyectiva.
+				Sea \(y\in\mathbb{R}\). Queremos \(x\in\mathbb{R}\) tal que
+				\[f(x)=x-1=y.\]
+				Resolviendo para \(x\):
+				\[x=y+1.\]
+				Como \(y+1\in\mathbb{R}\), tal \(x\) siempre existe. Por lo tanto, \(f\) es sobreyectiva. \(\square\)
+				<br>
+				<h2>2).Segundo ejemplo de sobreyectividad.</h2>
+				<br>
+				Sea \(f:\mathbb{R}\to\mathbb{R}\), \(f(x)=x^2-x+2\). Entonces \(f\) no es sobreyectiva.
+				La imagen de \(f\) no cubre todos los reales.
+				Notemos que
+				\[f(x)=x^2-x+2 = \left(x-\tfrac{1}{2}\right)^2 + \tfrac{7}{4}.\]
+				De aquí se ve que
+				\[f(x)\geq \tfrac{7}{4} \quad \forall x\in\mathbb{R}.\]
+				Por lo tanto, ningún \(y<\tfrac{7}{4}\) está en la imagen. Así, \(f\) no es sobreyectiva sobre \(\mathbb{R}\). \(\square\)
+				<br>
+				<h2>BIYECTIVIDAD</h2>
+				<h2>1).Primer ejemplo de biyectividad.</h2>
+				<br>
+				Sea \(f:\mathbb{R}\to\mathbb{R}\), \(f(x)=x-1\).
+				- Ya vimos que \(f\) es inyectiva: si \(f(a)=f(b)\implies a=b\).
+				- También es sobreyectiva: para cada \(y\in\mathbb{R}\), existe \(x=y+1\) tal que \(f(x)=y\).
+				\(f\) es biyectiva. \(\square\)
+				<br>
+				<h2>2).Segundo ejemplo de biyectividad.</h2>
+				<br>
+				Sea \(f:\mathbb{R}\to\mathbb{R}\), \(f(x)=x^2-x+2\).
+				- No es inyectiva: \(f(0)=f(1)=2\) con \(0\neq 1\).
+				- No es sobreyectiva: su imagen es \(\{ y\in\mathbb{R}\mid y\geq \tfrac{7}{4} \}\), por lo que ningún \(y<\tfrac{7}{4}\) pertenece al recorrido.
+				\(f\) no es biyectiva. \(\square\)
+
+			</p>
+		</article>
+	</section> <!-- CADA SECCION LLEVA DOS ARTICLE, y UNO VA DEBAJO DE OTRA-->
+	<section class="clasesRedes">
+		<article class="redesredes">
+			<hgroup>
+				<h1>FUNCIONES TRIGONOMETRICAS INVERSAS CON SU RAMO PRINCIPAL</h1>
+			</hgroup>
+			<p class="ramos">
+				\(
+\text{Función: } y = \arcsin(x)
+\)
+\(
+\text{Rama principal: } -\tfrac{\pi}{2} \leq y \leq \tfrac{\pi}{2}
+\)
+|
+\(
+-90^\circ \leq y \leq 90^\circ
+\)<br>
+
+\(
+\text{Función: } y = \arccos(x)
+\)
+\(
+\text{Rama principal: } 0 \leq y \leq \pi
+\)
+|
+\(
+0^\circ \leq y \leq 180^\circ
+\)<br>
+
+\(
+\text{Función: } y = \arctan(x)
+\)
+\(
+\text{Rama principal: } -\tfrac{\pi}{2} < y < \tfrac{\pi}{2}
+\)
+|
+\(
+-90^\circ < y < 90^\circ
+\)<br>
+
+\(
+\text{Función: } y = \arccot(x)
+\)
+\(
+\text{Rama principal: } 0 < y < \pi
+\)
+|
+\(
+0^\circ < y < 180^\circ
+\)<br>
+
+\(
+\text{Función: } y = \arcsec(x)
+\)
+\(
+\text{Rama principal: } 0 \leq y < \tfrac{\pi}{2} \;\; \cup \;\; \tfrac{\pi}{2} < y \leq \pi
+\)
+|
+\(
+0^\circ \leq y < 90^\circ \;\; \cup \;\; 90^\circ < y \leq 180^\circ
+\)<br>
+
+\(
+\text{Función: } y = \arccsc(x)
+\)
+\(
+\text{Rama principal: } -\tfrac{\pi}{2} \leq y < 0 \;\; \cup \;\; 0 < y \leq \tfrac{\pi}{2}
+\)
+|
+\(
+-90^\circ \leq y < 0^\circ \;\; \cup \;\; 0^\circ < y \leq 90^\circ
+\)
+
+			</p>
+		</article>
+		<article class="redesredes">
+			<hgroup>
+				<h1>CALCULADORA GRAFICA</h1>
+				<div id="calculator" style="widht: 500px; height: 500px;"></div>
+				<script src="https://www.desmos.com/api/v1.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+				<script>
+					var elt = document.getElementById('calculator');
+					var calculator = Desmos.GraphingCalculator(elt);
+					calculator.setExpression({ id: 'graph1', latex: 'y=arcsin(x)' });
+					calculator.setExpression({ id: 'graph2', latex: 'y=arccos(x)' });
+					calculator.setExpression({ id: 'graph3', latex: 'y=arctan(x)' });
+					calculator.setExpression({ id: 'graph4', latex: 'y=arccot(x)' });
+					calculator.setExpression({ id: 'graph5', latex: 'y=arcsec(x)' });
+				    calculator.setExpression({ id: 'graph6', latex: 'y=arccsc(x)' });
+			    </script>
+
+			</hgroup>
+		</article>
+	</section>
+	<section class="clasesRedes">
+		<article class="redesredes">
+			<hgroup>
+				<h1>ANIMACION JAVASCRIPT</h1>
+			</hgroup>
+		</article>
+		<article class="redesredes">
+			<hgroup>
+				
+			</hgroup>
+		</article>
+	</section>
+	<section class="clasesRedes">
+		<article class="redesredes">
+			<hgroup>
+				<h1>ANIMACION JAVASCRIPT</h1>
+			</hgroup>
+		</article>
+		<article class="redesredes">
+			<hgroup>
+				
+			</hgroup>
+		</article>
+	</section>
+</body>
+</html>
