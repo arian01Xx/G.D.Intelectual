@@ -549,3 +549,9 @@ img{
 h1, h2, p{
 	text-align: center;
 }
+
+.gifDos{
+	float: medium;
+	width: 200px;
+	height: 100px;
+}
