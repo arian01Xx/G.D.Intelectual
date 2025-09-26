@@ -8,7 +8,7 @@ USO DE QT GUI PARA C++
 para compilador MinGW:
 g++ main.cpp -o app $(pkg-config --cflags --libs Qt6Widgets)
 
-se instala usando MSYS2 instalado en windows.
+se instala usando MSYS2 instaladogit mi en windows.
 pacman -Syu //primero se actualiza todo (cerrar y volver a abrir)
 
 //instalar Qt6 y herramientas
