@@ -1,0 +1,95 @@
+@property --gradient-angle{
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+:root{
+	--clr-1: #052b2f;
+	--clr-2: #073438;
+	--clr-3: #0e4b50;
+	--clr-4: #2d8f85;
+	--clr-5: #637c54;
+}
+h1{
+	font-size: 20px;
+	font-family: sans-serif;
+	font-weight: bold;
+	margin-right: 20px;
+}
+h2{
+	font: bold 14px sans-serif;
+}
+.textosPrincipales{
+	font-family: sans-serif;
+}
+body{
+	text-align: center;
+	background: #46129f;
+	margin: 0;
+	padding: 0;
+	padding-top: 80px;
+	margin-top: 0;
+}
+
+
+article{
+	background: #fa52a3;
+	border: 1px solid;
+	border-color: white;
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 15px;
+	box-shadow: 5px 5px 20px #00ffed;
+}
+time{
+	color: black;
+}
+article footer{
+	text-align: right;
+	margin-top: 20px;
+}
+
+img{
+	width: 300px;
+	display: block;
+	margin: auto;
+}
+
+.clasesRedes{
+	font-family: "Consola", monospace;
+	float: left;
+}
+.redesredes{
+	font-size: 13px;
+	font-family: "Consola", monospace;
+	width: 500px;
+	text-align: left;
+}
+
+
+/*################################################################*/
+body{
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+}
+
+/*####################################################################*/
+img{
+	border-radius: 15px;  /* Bordes redondeados */
+    box-shadow:  6px 6px 15px #00ffed; 
+	float:left;
+	width: 200px;
+}
+
+.textosPrincipales{
+	font-family: "Consola", monospace;
+}
+
+h1, h2{
+	text-align: center;
+}
+
+p{
+	text-align: left;
+}

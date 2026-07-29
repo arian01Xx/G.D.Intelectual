@@ -1,0 +1,3091 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>algebra abstracta</title>
+
+    <!-- CONFIGURACION MATHJAX
+         AUTOMATIZADO DE SIMBOLOS-->
+    <script>
+        window.MathJax={
+            tex:{
+                macros:{
+                    arccot: "\\operatorname{arccot}",
+                    arcsec: "\\operatorname{arcsec}",
+                    arccsc: "\\operatorname{arccsc}",
+                    sen: "\\operatorname{sen}"
+                }
+            }
+        };
+    </script>
+
+    <!-- AQUI VA MATHJAX -->
+
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer>
+    </script>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <!-- SOLO SON DOS SECTION POR CADA PAGINA-->
+    <section class="clasesRedes">
+        <article class="redesredes">
+            <hgroup><h1>TEORIA DE GRUPOS</h1></hgroup>
+            <p>
+            Los temas de esta disciplina fueron sacados del siguiente PDF:<br>
+            <h2>PDF= <a href="https://www.matem.unam.mx/~labardini/teaching/Grupos_EMALCA_Chile.pdf" target="_blank" class="link">TEORIA DE GRUPOS</a></h2>
+            <!--LINK DEL PDF-->
+            Aqui podràs encontrar toda la teoria sacada del PDF, sus definiciones, lemas, teoremas y algunas demostraciones.
+            Lo hago de esa manera para que el PDF no se vean tan intimidante para el aprendiz, ya que suele pasar que
+            al primer vistazo hay un desorden percibido. Entonces aqui, simplemente lo encontraràs todo mas ordenado.
+            no pretendo ser un tutor, solo un ordenador.<br><br>
+
+            Primero se verà todo teoria de grupos, para luego empezar con teoria de anillos,
+            posteriormente se verà campos.
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>DEFINICION DE GRUPO Y GRUPO ABELIANO</h1></hgroup>
+            <p>
+            <h2>Lema 1.1.</h2>
+            Sea \(G\) un conjunto y \(\ast:G\times G\to G\) cualquier función. A lo más un elemento \(e\in G\) satisface que
+
+            \[
+            e\ast g=g=g\ast e,\qquad \forall g\in G.
+            \]
+
+            <b>Demostración.</b> Sean \(e_1,e_2\in G\) y supongamos que
+
+            \[
+            e_1\ast g=g=g\ast e_1,\qquad
+            e_2\ast g=g=g\ast e_2,\qquad
+            \forall g\in G.
+            \]
+
+            Entonces,
+
+            \[
+            e_1=e_1\ast e_2=e_2.
+            \]
+
+            Por lo tanto, el elemento identidad es único. \(\square\)
+
+            <br><br>
+
+            <h2>Definición 1.2.</h2>
+
+            Un <i>grupo</i> es una pareja \((G,\ast)\) consistente de un conjunto \(G\) y una función
+
+            \[
+            \ast:G\times G\to G
+            \]
+
+            que satisface las siguientes propiedades:
+
+            <ol>
+
+            <li>
+            Para cualesquiera \(a,b,c\in G\),
+
+            \[
+            a\ast(b\ast c)=(a\ast b)\ast c.
+            \]
+
+            Es decir, la operación \(\ast\) es <i>asociativa</i>.
+            </li>
+
+            <br>
+
+            <li>
+            Existe un elemento \(e\in G\) tal que
+
+            \[
+            e\ast g=g=g\ast e,\qquad \forall g\in G.
+            \]
+
+            Por el lema anterior, dicho elemento es único y recibe el nombre de <i>elemento identidad</i>.
+            </li>
+
+            <br>
+
+            <li>
+            Para todo \(g\in G\) existe un elemento \(h\in G\) tal que
+
+            \[
+            g\ast h=e=h\ast g.
+            \]
+
+            Al elemento \(h\) se le llama el <i>inverso</i> de \(g\).
+            </li>
+
+            </ol>
+
+            Si además
+
+            \[
+            g\ast h=h\ast g,\qquad \forall g,h\in G,
+            \]
+
+            diremos que \((G,\ast)\) es un <i>grupo abeliano</i> o <i>conmutativo</i>.
+
+            <h2>Lema 1.4.</h2>
+
+Sea \((G,\ast)\) un grupo. Para cada \(g\in G\) existe exactamente un elemento \(h\in G\) tal que
+
+\[
+g\ast h=e=h\ast g.
+\]
+
+<b>Demostración.</b> Supongamos que \(h_1\) y \(h_2\) son elementos de \(G\) tales que
+
+\[
+g\ast h_1=e=h_1\ast g,\qquad
+g\ast h_2=e=h_2\ast g.
+\]
+
+Entonces,
+
+\[
+\begin{aligned}
+h_1
+&=h_1\ast e\\
+&=h_1\ast(g\ast h_2)\\
+&=(h_1\ast g)\ast h_2\\
+&=e\ast h_2\\
+&=h_2.
+\end{aligned}
+\]
+
+Por lo tanto, el inverso de un elemento es único. \(\square\)
+
+<br><br>
+
+<h2>Definición 1.5.</h2>
+
+Sean \((G,\ast)\) un grupo y \(g\in G\).
+
+<ol>
+
+<li>
+
+El único elemento \(h\in G\) que satisface
+
+\[
+g\ast h=e=h\ast g
+\]
+
+se llama el <i>inverso</i> de \(g\) (en \(G\) respecto de \(\ast\)) y se denota por
+
+\[
+g^{-1}.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Para cada \(n\in\mathbb{Z}\), la <i>\(n\)-ésima potencia</i> de \(g\) se define por
+
+\[
+g^n=
+\begin{cases}
+\underbrace{g\ast\cdots\ast g}_{n\text{ veces}}, & n>0,\\[1em]
+e, & n=0,\\[1em]
+\underbrace{g^{-1}\ast\cdots\ast g^{-1}}_{-n\text{ veces}}, & n<0.
+\end{cases}
+\]
+
+</li>
+
+</ol>
+
+<br>
+
+<h2>Lema 1.6.</h2>
+
+Sean \((G,\ast)\) un grupo y \(g,h\in G\).
+
+<ol>
+
+<li>
+
+Las funciones
+
+\[
+\lambda_g:G\to G,\qquad
+\lambda_g(x)=g\ast x,
+\]
+
+y
+
+\[
+\rho_g:G\to G,\qquad
+\rho_g(x)=x\ast g,
+\]
+
+son biyectivas.
+
+</li>
+
+<br>
+
+<li>
+
+\[
+(g\ast h)^{-1}=h^{-1}\ast g^{-1}.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Si
+
+\[
+g^2=g,
+\]
+
+entonces
+
+\[
+g=e.
+\]
+
+</li>
+
+</ol>
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>SUBGRUPO GENERADO</h1></hgroup>
+            <p>
+<h2>Definición 1.8.</h2>
+
+Sea \((G,\ast)\) un grupo y \(H\subseteq G\). Diremos que \(H\) es un <i>subgrupo</i> de \(G\) (respecto de la operación \(\ast\)), y escribiremos
+
+\[
+H\leq G,
+\]
+
+si \(H\) es un grupo bajo la restricción de la operación \(\ast\) a \(H\times H\). Es decir, si se satisfacen simultáneamente las siguientes condiciones:
+
+<ol>
+
+<li>
+
+Para cualesquiera \(a,b\in H\),
+
+\[
+a\ast b\in H.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Existe un elemento \(e_H\in H\) tal que
+
+\[
+e_H\ast h=h=h\ast e_H,\qquad \forall h\in H.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Para todo \(h\in H\) existe un elemento \(h'\in H\) tal que
+
+\[
+h\ast h'=e_H=h'\ast h.
+\]
+
+</li>
+
+</ol>
+
+<br>
+
+<h2>Nota 1.9.</h2>
+
+Si \((G,\ast)\) es un grupo y \(H\subseteq G\), la asociatividad de la restricción de \(\ast\) a \(H\times H\) es inmediata, pues se hereda directamente de la asociatividad de \(G\).
+
+<br><br>
+
+<h2>Lema 1.10.</h2>
+
+Si \(H\leq G\), entonces:
+
+<ol>
+
+<li>
+
+El elemento neutro de \(G\) pertenece a \(H\) y coincide con el elemento neutro de \(H\).
+
+</li>
+
+<br>
+
+<li>
+
+Para todo \(h\in H\), el inverso de \(h\) en \(H\) coincide con el inverso de \(h\) en \(G\).
+
+</li>
+
+</ol>
+
+<b>Demostración.</b>
+
+<ol>
+
+<li>
+
+Sean \(e_H\) el elemento neutro de \(H\), \(e_G\) el elemento neutro de \(G\) y \(e_H^{-1}\) el inverso de \(e_H\) en \(G\). Entonces,
+
+\[
+\begin{aligned}
+e_H
+&=e_G\ast e_H\\
+&=(e_H^{-1}\ast e_H)\ast e_H\\
+&=e_H^{-1}\ast(e_H\ast e_H)\\
+&=e_H^{-1}\ast e_H\\
+&=e_G.
+\end{aligned}
+\]
+
+Por lo tanto,
+
+\[
+e_H=e_G.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Como \(e_H=e_G\), el inverso de cualquier elemento \(h\in H\) respecto de la estructura de grupo de \(H\) también es un inverso de \(h\) en \(G\). Por la unicidad del inverso en un grupo, ambos coinciden. \(\square\)
+
+</li>
+
+</ol>
+
+<br>
+
+<h2>Lema 1.11.</h2>
+
+Sean \(G\) un grupo y \(H\subseteq G\). Las siguientes afirmaciones son equivalentes:
+
+<ol>
+
+<li>
+
+\(H\) es un subgrupo de \(G\).
+
+</li>
+
+<br>
+
+<li>
+
+\(H\) satisface las siguientes propiedades:
+
+<ol type="a">
+
+<li>
+
+El producto de cualesquiera dos elementos de \(H\) pertenece a \(H\).
+
+</li>
+
+<li>
+
+El elemento neutro de \(G\) pertenece a \(H\).
+
+</li>
+
+<li>
+
+Para todo \(h\in H\), el inverso \(h^{-1}\) pertenece a \(H\).
+
+</li>
+
+</ol>
+
+</li>
+
+<br>
+
+<li>
+
+\(H\) satisface:
+
+<ol type="a">
+
+<li>
+
+\(H\neq\varnothing\).
+
+</li>
+
+<li>
+
+Para cualesquiera \(a,b\in H\),
+
+\[
+a\ast b^{-1}\in H.
+\]
+
+</li>
+
+</ol>
+
+</li>
+
+</ol>
+
+<b>Demostración.</b> Ejercicio. \(\square\)
+
+<br><br>
+
+<h2>Subgrupo generado por un subconjunto. Subgrupos cíclicos.</h2>
+
+<h2>Definición 1.12.</h2>
+
+Sean \(G\) un grupo, \(S\subseteq G\) y \(H\leq G\). Diremos que \(H\) es el <i>subgrupo generado</i> por \(S\), y escribiremos
+
+\[
+H=\langle S\rangle,
+\]
+
+si satisface las siguientes condiciones:
+
+<ol>
+
+<li>
+
+\[
+S\subseteq H.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Para todo subgrupo \(K\leq G\),
+
+\[
+S\subseteq K
+\quad\Longrightarrow\quad
+H\subseteq K.
+\]
+
+</li>
+
+</ol>
+
+Resulta inmediato que para cada subconjunto \(S\subseteq G\) existe a lo más un subgrupo que satisface estas condiciones.
+
+<br><br>
+
+<h2>Lema 1.13.</h2>
+
+Sean \(G\) un grupo y \(\mathcal{F}\) una colección no vacía de subgrupos de \(G\). Entonces,
+
+\[
+\bigcap_{H\in\mathcal{F}}H
+\]
+
+es un subgrupo de \(G\).
+
+<b>Demostración.</b> Ejercicio. \(\square\)
+
+<br><br>
+
+<h2>Corolario 1.14.</h2>
+
+Si \(G\) es un grupo y \(S\subseteq G\), entonces el subgrupo generado por \(S\) existe.
+
+<b>Demostración.</b>
+
+Definamos
+
+\[
+\mathcal{F}_S=\{\,H\mid H\leq G,\; S\subseteq H\,\}.
+\]
+
+Esta colección es no vacía y
+
+\[
+\bigcap_{H\in\mathcal{F}_S}H
+\]
+
+es precisamente el subgrupo generado por \(S\). \(\square\)
+
+<br><br>
+
+<h2>Lema 1.15.</h2>
+
+Sea \(G\) un grupo. Para todo subconjunto \(S\subseteq G\),
+
+\[
+\langle S\rangle=
+\left\{
+x_1\ast\cdots\ast x_m
+\;\middle|\;
+m\in\mathbb{Z}_{>0},
+\;
+x_1,\ldots,x_m\in S'
+\right\},
+\]
+
+donde
+
+\[
+S'=S\cup\{\,s^{-1}\mid s\in S\,\}\cup\{e\}.
+\]
+
+<b>Demostración.</b> Ejercicio. \(\square\)
+
+<br><br>
+
+En particular, si \(S=\{a\}\), entonces
+
+\[
+\langle S\rangle=\{a^m\mid m\in\mathbb{Z}\},
+\]
+
+subgrupo que también se denota por
+
+\[
+\langle a\rangle.
+\]
+
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>SUBGRUPO CICLICO</h1></hgroup>
+            <p>
+
+            <h2>Definición.</h2>
+
+Un grupo \(G\) se dice <i>cíclico</i> si existe un elemento \(a\in G\) tal que
+
+\[
+G=\langle a\rangle.
+\]
+
+En este caso, se dice que el elemento \(a\) <i>genera</i> al grupo \(G\).
+
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>ORDEN DE UN ELEMENTO</h1></hgroup>
+            <p>
+
+            <h2>Definición.</h2>
+
+Sea \(G\) un grupo.
+
+<ul>
+
+<li>
+
+El <i>orden</i> de \(G\) es la cardinalidad de \(G\).
+
+</li>
+
+<br>
+
+<li>
+
+El <i>orden</i> de un elemento \(g\in G\) es el orden del subgrupo de \(G\) generado por \(g\), es decir,
+
+\[
+|\langle g\rangle|.
+\]
+
+</li>
+
+</ul>
+
+<br>
+
+<h2>Lema 1.18.</h2>
+
+<ol>
+
+<li>
+
+Para cada \(n\in\mathbb{Z}_{>0}\) existe un grupo de orden \(n\).
+
+</li>
+
+<br>
+
+<li>
+
+Todo subgrupo de un grupo cíclico es cíclico.
+
+</li>
+
+</ol>
+
+<h2>Lema.</h2>
+
+Sean \(G\) un grupo, \(g\in G\) y \(n\in\mathbb{Z}_{>0}\). Las siguientes afirmaciones son equivalentes:
+
+<ol>
+
+<li>
+
+\(n\) es el orden de \(g\).
+
+</li>
+
+<br>
+
+<li>
+
+\[
+n=\min\{\,m\in\mathbb{Z}_{>0}\mid g^m=e\,\}.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+\[
+g^n=e,
+\]
+
+y \(n\) divide a todo entero \(m\) que satisfaga
+
+\[
+g^m=e.
+\]
+
+</li>
+
+</ol>
+
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>CLASES LATERALES IZQUIERDAS Y DERECHAS</h1></hgroup>
+            <p>
+
+            <h2>Clases laterales izquierdas y derechas</h2>
+
+<h2>Definición 1.20.</h2>
+
+Sean \(G\) un grupo, \(H\leq G\) y \(a,b\in G\).
+
+<ol>
+
+<li>
+
+Diremos que \(a\) es <i>congruente con \(b\) por la izquierda módulo \(H\)</i>, y escribiremos
+
+\[
+a\equiv_H^{\,i} b,
+\]
+
+si
+
+\[
+a^{-1}b\in H.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Diremos que \(a\) es <i>congruente con \(b\) por la derecha módulo \(H\)</i>, y escribiremos
+
+\[
+a\equiv_H^{\,d} b,
+\]
+
+si
+
+\[
+ab^{-1}\in H.
+\]
+
+</li>
+
+</ol>
+
+<br>
+
+<h2>Lema 1.21.</h2>
+
+Sean \(G\) un grupo y \(H\leq G\).
+
+<ol>
+
+<li>
+
+Las relaciones
+
+\[
+\equiv_H^{\,i}
+\quad\text{y}\quad
+\equiv_H^{\,d}
+\]
+
+son relaciones de equivalencia sobre \(G\).
+
+</li>
+
+<br>
+
+<li>
+
+Para cada \(g\in G\),
+
+\[
+[g]_H^{\,i}=gH,
+\]
+
+y
+
+\[
+[g]_H^{\,d}=Hg.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Para cada \(g\in G\) existen biyecciones
+
+\[
+H\longrightarrow[g]_H^{\,i}
+\]
+
+y
+
+\[
+H\longrightarrow[g]_H^{\,d}.
+\]
+
+</li>
+
+</ol>
+            </p>
+        </article> 
+        <article class="redesredes">
+            <hgroup><h1>TEOREMA DE LAGRANGE</h1></hgroup>
+            <p>
+Sea \(G\) un grupo finito.
+
+<ol>
+
+<li>
+
+Si \(H\leq G\), entonces
+
+\[
+|H|\mid |G|.
+\]
+
+Es decir, el orden de \(H\) divide al orden de \(G\).
+
+</li>
+
+<br>
+
+<li>
+
+Todo elemento \(g\in G\) satisface
+
+\[
+g^{|G|}=e.
+\]
+
+</li>
+
+</ol>
+
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>SUBGRUPOS NORMALES</h1></hgroup>
+            <p>
+
+            <h2>Pregunta 1.23.</h2>
+
+¿Cuándo se tiene
+
+\[
+\equiv_H^{\,i}=\equiv_H^{\,d}\,?
+\]
+
+Es un sencillo ejercicio verificar que, para todo \(g\in G\),
+
+\[
+gH=Hg
+\]
+
+si y sólo si
+
+\[
+gHg^{-1}=H.
+\]
+
+Puesto que
+
+\[
+gH=[g]_H^{\,i}
+\qquad\text{y}\qquad
+Hg=[g]_H^{\,d},
+\]
+
+se concluye que
+
+\[
+\equiv_H^{\,i}=\equiv_H^{\,d}
+\]
+
+si y sólo si
+
+\[
+gHg^{-1}=H,\qquad \forall g\in G.
+\]
+
+<br><br>
+
+<h2>Definición 1.24.</h2>
+
+Sean \(G\) un grupo y \(H\leq G\). Diremos que \(H\) es un <i>subgrupo normal</i> de \(G\), y escribiremos
+
+\[
+H\trianglelefteq G,
+\]
+
+si para todo \(g\in G\) se cumple que
+
+\[
+gHg^{-1}=H.
+\]
+
+Equivalentemente, un subgrupo \(H\) de \(G\) es normal si y sólo si
+
+\[
+ghg^{-1}\in H,
+\qquad
+\forall\,g\in G,\ \forall\,h\in H.
+\]
+
+<br><br>
+
+Supongamos ahora que \(H\trianglelefteq G\). Entonces la congruencia por la izquierda y la congruencia por la derecha módulo \(H\) coinciden. Denotaremos esta relación simplemente por
+
+\[
+\equiv_H,
+\]
+
+y escribiremos
+
+\[
+G/H
+\]
+
+para el conjunto de clases de equivalencia inducidas por esta relación.
+
+<br><br>
+
+Sean \(X,Y\in G/H\) y sean
+
+\[
+x_1,x_2\in X,\qquad
+y_1,y_2\in Y.
+\]
+
+Como
+
+\[
+x_1^{-1}x_2\in H,
+\qquad
+y_1^{-1}y_2\in H,
+\]
+
+y \(H\) es normal, se tiene
+
+\[
+y_1^{-1}x_1^{-1}x_2y_1\in H.
+\]
+
+Por consiguiente,
+
+\[
+\begin{aligned}
+(x_1y_1)^{-1}(x_2y_2)
+&=y_1^{-1}x_1^{-1}x_2y_2\\
+&=\left(y_1^{-1}x_1^{-1}x_2y_1\right)\left(y_1^{-1}y_2\right)\in H.
+\end{aligned}
+\]
+
+Así,
+
+\[
+x_1y_1\equiv_H x_2y_2.
+\]
+
+Esto demuestra que el producto de clases de equivalencia está bien definido.
+
+<br><br>
+
+Se define entonces la operación
+
+\[
+G/H\times G/H\longrightarrow G/H
+\]
+
+mediante
+
+\[
+(X,Y)\longmapsto [xy]_H,
+\]
+
+donde \(x\in X\) y \(y\in Y\) son representantes arbitrarios.
+
+En particular,
+
+\[
+[x]_H[y]_H=[xy]_H.
+\]
+
+<br><br>
+
+Con esta operación se verifican inmediatamente las propiedades de grupo:
+
+<ol>
+
+<li>
+
+La operación es asociativa.
+
+</li>
+
+<br>
+
+<li>
+
+El elemento neutro es
+
+\[
+[e]_H.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Para todo \(g\in G\),
+
+\[
+[g]_H[g^{-1}]_H=[e]_H.
+\]
+
+Por tanto,
+
+\[
+[g]_H^{-1}=[g^{-1}]_H.
+\]
+
+</li>
+
+</ol>
+
+En consecuencia,
+
+\[
+G/H
+\]
+
+es un grupo, llamado el <i>grupo cociente</i> de \(G\) por \(H\). En este grupo, el producto de dos clases de equivalencia se define como la clase de equivalencia del producto de cualesquiera representantes de dichas clases.
+
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>GRUPO COCIENTE</h1></hgroup>
+            <p>
+
+            <h2>Grupo cociente.</h2>
+
+Sea \(G\) un grupo y \(N\trianglelefteq G\) un subgrupo normal. Se define el <i>grupo cociente</i> \(G/N\) como el conjunto de clases laterales izquierdas de \(N\) en \(G\), es decir,
+
+\[
+G/N=\{\,aN\mid a\in G\,\}.
+\]
+
+La operación de grupo en \(G/N\) se define mediante el producto de clases laterales:
+
+\[
+(aN)(bN)=(ab)N.
+\]
+
+Para que esta operación esté bien definida, es necesario que el producto de dos clases laterales vuelva a ser una clase lateral. Esto ocurre precisamente cuando \(N\) es un subgrupo normal de \(G\), es decir, cuando
+
+\[
+aN=Na,\qquad \forall\,a\in G.
+\]
+
+En efecto,
+
+\[
+\begin{aligned}
+(aN)(bN)
+&=a(Nb)N\\
+&=a(bN)N\\
+&=(ab)NN\\
+&=(ab)N,
+\end{aligned}
+\]
+
+donde en el segundo paso se utilizó que \(N\) es un subgrupo normal, es decir,
+
+\[
+Nb=bN.
+\]
+
+Por lo tanto, la operación
+
+\[
+(aN)(bN)=(ab)N
+\]
+
+está bien definida y convierte a \(G/N\) en un grupo, llamado el <i>grupo cociente</i> de \(G\) por \(N\).
+
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>HOMOMORFISMO</h1></hgroup>
+            <p>
+
+            <h2>Definición 1.25.</h2>
+
+Sean \(G\) y \(H\) grupos. Un <i>homomorfismo de grupos</i> de \(G\) a \(H\) es una función
+
+\[
+\varphi:G\longrightarrow H
+\]
+
+que satisface
+
+\[
+\varphi(xy)=\varphi(x)\varphi(y),
+\qquad
+\forall\,x,y\in G.
+\]
+
+<br><br>
+
+<h2>Ejemplo 1.26.</h2>
+
+<ol>
+
+<li>
+
+Si \(G\) es un grupo y \(H\trianglelefteq G\), entonces la función
+
+\[
+[\,\cdot\,]_H:G\longrightarrow G/H,
+\]
+
+definida por
+
+\[
+g\longmapsto[g]_H,
+\]
+
+es un homomorfismo de grupos.
+
+</li>
+
+<br>
+
+<li>
+
+Si \(H\leq G\), entonces la función inclusión
+
+\[
+\iota:H\longrightarrow G,
+\]
+
+es un homomorfismo de grupos.
+
+</li>
+
+<br>
+
+<li>
+
+Para cada entero fijo \(n\), la función
+
+\[
+\mu_n:\mathbb{Z}\longrightarrow\mathbb{Z},
+\]
+
+definida por
+
+\[
+\mu_n(m)=nm,
+\]
+
+es un homomorfismo de grupos.
+
+</li>
+
+<br>
+
+<li>
+
+Dado un elemento \(g\in G\), la función
+
+\[
+\mathbb{Z}\longrightarrow G,
+\]
+
+definida por
+
+\[
+m\longmapsto g^m,
+\]
+
+es un homomorfismo de grupos.
+
+</li>
+
+<br>
+
+<li>
+
+La función
+
+\[
+\mathbb{R}\longrightarrow\mathbb{R}_{>0},
+\]
+
+definida por
+
+\[
+x\longmapsto e^x,
+\]
+
+es un homomorfismo de grupos.
+
+</li>
+
+<br>
+
+<li>
+
+La función
+
+\[
+\mathbb{R}_{>0}\longrightarrow\mathbb{R},
+\]
+
+definida por
+
+\[
+x\longmapsto \log(x),
+\]
+
+es un homomorfismo de grupos.
+
+</li>
+
+</ol>
+
+<br>
+
+<h2>Lema 1.27.</h2>
+
+Supongamos que
+
+\[
+\varphi:G\longrightarrow H
+\]
+
+es un homomorfismo de grupos. Entonces:
+
+<ol>
+
+<li>
+
+\[
+\varphi(e_G)=e_H.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Para todo \(g\in G\),
+
+\[
+\varphi(g^{-1})=\bigl(\varphi(g)\bigr)^{-1}.
+\]
+
+</li>
+
+</ol>
+
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>NUCLEO E IMAGEN</h1></hgroup>
+            <p>
+
+            <h2>Definición 1.28.</h2>
+
+Sea
+
+\[
+\varphi:G\longrightarrow H
+\]
+
+un homomorfismo de grupos.
+
+<ol>
+
+<li>
+
+Se define el <i>núcleo</i> (o <i>kernel</i>) de \(\varphi\) como el conjunto
+
+\[
+\operatorname{Nuc}(\varphi)
+=
+\{\,g\in G\mid \varphi(g)=e_H\,\}
+\subseteq G.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Se define la <i>imagen</i> de \(\varphi\) como el conjunto
+
+\[
+\operatorname{Im}(\varphi)
+=
+\{\varphi(g)\mid g\in G\}
+=
+\{\,h\in H\mid \exists\,g\in G,\ \varphi(g)=h\,\}
+\subseteq H.
+\]
+
+</li>
+
+</ol>
+
+<br><br>
+
+<h2>Lema 1.29.</h2>
+
+Sea
+
+\[
+\varphi:G\longrightarrow H
+\]
+
+un homomorfismo de grupos. Entonces:
+
+<ol>
+
+<li>
+
+\[
+\operatorname{Nuc}(\varphi)
+\]
+
+es un subgrupo normal de \(G\).
+
+</li>
+
+<br>
+
+<li>
+
+\[
+\operatorname{Im}(\varphi)
+\]
+
+es un subgrupo de \(H\).
+
+</li>
+
+<br>
+
+<li>
+
+\(\varphi\) es inyectiva si y sólo si
+
+\[
+\operatorname{Nuc}(\varphi)=\{e_G\}.
+\]
+
+</li>
+
+</ol>
+
+<br><br>
+
+<h2>Teorema 1.30.</h2>
+
+Supongamos que
+
+\[
+\varphi:G\longrightarrow H
+\]
+
+es un homomorfismo de grupos. Entonces, para todo \(g\in G\),
+
+\[
+g\,\operatorname{Nuc}(\varphi)
+=
+\varphi^{-1}\!\bigl(\varphi(g)\bigr).
+\]
+
+En consecuencia, la función
+
+\[
+\overline{\varphi}:G/\operatorname{Nuc}(\varphi)\longrightarrow H,
+\]
+
+definida por
+
+\[
+\overline{\varphi}\!\left([g]_{\operatorname{Nuc}(\varphi)}\right)
+=
+\varphi(g),
+\]
+
+está bien definida y es inyectiva.
+
+Además, al correstringir el codominio de \(\overline{\varphi}\) a
+
+\[
+\operatorname{Im}(\varphi),
+\]
+
+se obtiene un homomorfismo biyectivo
+
+\[
+\overline{\varphi}:
+G/\operatorname{Nuc}(\varphi)
+\longrightarrow
+\operatorname{Im}(\varphi).
+\]
+
+<b>Demostración.</b> \(\square\)
+
+<br><br>
+
+<h2>Teorema 1.31.</h2>
+
+El núcleo de un homomorfismo de grupos
+
+\[
+\varphi:G\longrightarrow H
+\]
+
+posee la siguiente <i>propiedad universal</i>.
+
+Sea
+
+\[
+\iota:\operatorname{Nuc}(\varphi)\longrightarrow G
+\]
+
+la función inclusión. Entonces:
+
+<ol>
+
+<li>
+
+La composición
+
+\[
+\varphi\circ\iota
+\]
+
+es la función constante con valor
+
+\[
+e_H.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Para todo homomorfismo de grupos
+
+\[
+f:K\longrightarrow G
+\]
+
+tal que
+
+\[
+\varphi\circ f
+\]
+
+es la función constante con valor \(e_H\), existe un único homomorfismo de grupos
+
+\[
+\psi:K\longrightarrow\operatorname{Nuc}(\varphi)
+\]
+
+tal que
+
+\[
+f=\iota\circ\psi.
+\]
+
+</li>
+
+</ol>
+
+Es decir, el siguiente diagrama conmuta:
+
+\[
+\begin{array}{ccc}
+\operatorname{Nuc}(\varphi) & \xrightarrow{\ \iota\ } & G \\
+& \nwarrow\psi & \downarrow\varphi \\
+K & \xrightarrow{\ f\ } & H
+\end{array}
+\]
+
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>PRIMER TEOREMA DE ISOMORFISMO</h1></hgroup>
+            <p>
+
+            <h2>Definición 1.32.</h2>
+
+Sea
+
+\[
+\varphi:G\longrightarrow H
+\]
+
+un homomorfismo de grupos. Diremos que:
+
+<ol>
+
+<li>
+
+\(\varphi\) es un <i>isomorfismo</i> si existe un homomorfismo de grupos
+
+\[
+\psi:H\longrightarrow G
+\]
+
+tal que
+
+\[
+\psi\circ\varphi=\operatorname{id}_G
+\]
+
+y
+
+\[
+\varphi\circ\psi=\operatorname{id}_H.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+\(\varphi\) es un <i>monomorfismo</i> si para todo grupo \(K\) y todo par de homomorfismos
+
+\[
+f,g:K\longrightarrow G,
+\]
+
+se cumple que
+
+\[
+\varphi\circ f=\varphi\circ g
+\quad\Longrightarrow\quad
+f=g.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+\(\varphi\) es un <i>epimorfismo</i> si para todo grupo \(K\) y todo par de homomorfismos
+
+\[
+f,g:H\longrightarrow K,
+\]
+
+se cumple que
+
+\[
+f\circ\varphi=g\circ\varphi
+\quad\Longrightarrow\quad
+f=g.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+\(\varphi\) es un <i>endomorfismo</i> de \(G\) si
+
+\[
+G=H.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+\(\varphi\) es un <i>automorfismo</i> de \(G\) si
+
+\[
+G=H
+\]
+
+y \(\varphi\) es un isomorfismo.
+
+</li>
+
+</ol>
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>ACCIONES DE GRUPO</h1></hgroup>
+            <p>
+
+           <h2>Definición 1.33.</h2>
+
+Sean \(G\) un grupo y \(X\) un conjunto. Una <i>acción</i> de \(G\) sobre \(X\) es una función
+
+\[
+\cdot:G\times X\longrightarrow X
+\]
+
+que satisface las siguientes propiedades:
+
+<ol>
+
+<li>
+
+Para todo \(x\in X\),
+
+\[
+e\cdot x=x.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Para todo \(g,h\in G\) y todo \(x\in X\),
+
+\[
+(gh)\cdot x
+=
+g\cdot(h\cdot x).
+\]
+
+</li>
+
+</ol>
+
+<br><br>
+
+<h2>Lema 1.34.</h2>
+
+Denotemos por
+
+\[
+\operatorname{Acc}_G(X)
+=
+\{\cdot\mid \cdot \text{ es una acción de } G \text{ sobre } X\}.
+\]
+
+Las aplicaciones
+
+\[
+\varphi
+\longmapsto
+\left[(g,x)\longmapsto \varphi(g)(x)\right]
+\]
+
+y
+
+\[
+\cdot
+\longmapsto
+\left[g\longmapsto\bigl(x\longmapsto g\cdot x\bigr)\right]
+\]
+
+son biyecciones mutuamente inversas entre
+
+\[
+\operatorname{Hom}(G,S_X)
+\quad\text{y}\quad
+\operatorname{Acc}_G(X).
+\]
+
+<br><br>
+
+<h2>Ejemplo 1.35.</h2>
+
+La función
+
+\[
+\cdot:\operatorname{GL}_2(\mathbb{C})\times\mathbb{C}
+\longrightarrow
+\mathbb{C},
+\]
+
+definida por
+
+\[
+A\cdot z=m_A(z),
+\]
+
+es una acción de
+
+\[
+\operatorname{GL}_2(\mathbb{C})
+\]
+
+sobre
+
+\[
+\mathbb{C}.
+\]
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>ORBITAS Y ESTABILIZADORES</h1></hgroup>
+            <p>
+
+            <h2>Definición 1.36.</h2>
+
+Supongamos que
+
+\[
+\cdot:G\times X\longrightarrow X
+\]
+
+es una acción del grupo \(G\) sobre el conjunto \(X\).
+
+<ol>
+
+<li>
+
+Para cada \(x\in X\), se define la <i>órbita</i> de \(x\) (bajo la acción de \(G\)) como
+
+\[
+G\cdot x
+=
+\{\,g\cdot x\mid g\in G\,\}
+=
+\{\,y\in X\mid \exists\,g\in G,\ g\cdot x=y\,\}.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Para cada \(x\in X\), se define el <i>estabilizador</i> de \(x\) como
+
+\[
+G_x
+=
+\{\,g\in G\mid g\cdot x=x\,\}.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Para cada \(g\in G\), se define el <i>conjunto fijo</i> de \(g\) como
+
+\[
+\operatorname{Fij}_X(g)
+=
+\{\,x\in X\mid g\cdot x=x\,\}.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Se define el <i>conjunto fijo de la acción</i> como
+
+\[
+\operatorname{Fij}_X(G)
+=
+\bigcap_{g\in G}\operatorname{Fij}_X(g).
+\]
+
+</li>
+
+</ol>
+
+<br><br>
+
+<h2>Lema 1.37.</h2>
+
+Supongamos que
+
+\[
+\cdot:G\times X\longrightarrow X
+\]
+
+es una acción del grupo \(G\) sobre el conjunto \(X\).
+
+<ol>
+
+<li>
+
+El conjunto
+
+\[
+\{\,G\cdot x\mid x\in X\,\}
+\]
+
+es una partición de \(X\).
+
+</li>
+
+<br>
+
+<li>
+
+Para todo \(x\in X\), el estabilizador
+
+\[
+G_x
+\]
+
+es un subgrupo de \(G\).
+
+</li>
+
+</ol>
+
+<br><br>
+
+<h2>Definición 1.38.</h2>
+
+Supongamos que
+
+\[
+\cdot:G\times X\longrightarrow X
+\]
+
+es una acción del grupo \(G\) sobre el conjunto \(X\). Diremos que la acción es:
+
+<ol>
+
+<li>
+
+<i>Libre de puntos fijos</i> si
+
+\[
+\operatorname{Fij}_X(g)=\varnothing,
+\qquad
+\forall\,g\in G\setminus\{e\}.
+\]
+
+Equivalentemente,
+
+\[
+G_x=\{e\},
+\qquad
+\forall\,x\in X.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+<i>Fiel</i> si
+
+\[
+\bigcap_{x\in X}G_x=\{e\},
+\]
+
+es decir, si únicamente el elemento neutro fija simultáneamente a todos los elementos de \(X\).
+
+</li>
+
+<br>
+
+<li>
+
+<i>Transitiva</i> si existe un elemento \(x\in X\) tal que
+
+\[
+G\cdot x=X.
+\]
+
+</li>
+
+</ol>
+
+<br><br>
+
+<h2>Proposición 1.39.</h2>
+
+Supongamos que
+
+\[
+\cdot:G\times X\longrightarrow X
+\]
+
+es una acción del grupo \(G\) sobre el conjunto \(X\). Sean \(x,y\in X\) dos elementos que pertenecen a la misma órbita.
+
+Entonces, los elementos de \(G\) que envían \(x\) en \(y\) son precisamente los elementos de una clase lateral izquierda de \(G_x\) en \(G\).
+
+En consecuencia,
+
+\[
+|G\cdot x|
+=
+[G:G_x].
+\]
+
+<b>Demostración.</b>
+
+Consideremos la función
+
+\[
+f:G\longrightarrow G\cdot x,
+\]
+
+definida por
+
+\[
+f(g)=g\cdot x.
+\]
+
+La fibra
+
+\[
+f^{-1}(y)
+\]
+
+está formada exactamente por los elementos de \(G\) que llevan \(x\) en \(y\).
+
+Fijemos un elemento \(g_0\in G\) tal que
+
+\[
+g_0\cdot x=y.
+\]
+
+Entonces,
+
+\[
+g_0G_x\subseteq f^{-1}(y).
+\]
+
+Recíprocamente, si
+
+\[
+g\in f^{-1}(y),
+\]
+
+entonces
+
+\[
+g\cdot x=g_0\cdot x,
+\]
+
+lo cual implica
+
+\[
+g_0^{-1}g\in G_x,
+\]
+
+y por tanto,
+
+\[
+g\in g_0G_x.
+\]
+
+Así,
+
+\[
+f^{-1}(y)=g_0G_x.
+\]
+
+Como todas las fibras de \(f\) tienen cardinalidad
+
+\[
+|G_x|,
+\]
+
+se concluye que
+
+\[
+|G\cdot x|
+=
+[G:G_x].
+\]
+
+\(\square\)
+
+<br><br>
+
+<h2>Ejemplo 1.40 (Conjugación).</h2>
+
+Sea \(G\) un grupo. Definimos una función
+
+\[
+\star:G\times G\longrightarrow G
+\]
+
+mediante la regla
+
+\[
+g\star x=gxg^{-1}.
+\]
+
+Es un ejercicio verificar que \(\star\) es una acción de \(G\) sobre sí mismo.
+
+La órbita de un elemento
+
+\[
+x\in G
+\]
+
+bajo esta acción recibe el nombre de <i>clase de conjugación</i> de \(x\).
+
+El estabilizador de \(x\),
+
+\[
+C_G(x):=G_x,
+\]
+
+recibe el nombre de <i>centralizador</i> de \(x\).
+
+Obsérvese que
+
+\[
+C_G(x)
+=
+\{\,g\in G\mid gx=xg\,\},
+\]
+
+es decir, el centralizador está formado por todos los elementos de \(G\) que conmutan con \(x\).
+
+<br><br>
+
+Supongamos ahora que \(X\) es un \(G\)-conjunto finito, que
+
+\[
+O_1,\ldots,O_r
+\]
+
+son las órbitas con más de un elemento y que
+
+\[
+x_i\in O_i,
+\qquad
+i=1,\ldots,r.
+\]
+
+Entonces,
+
+\[
+|X|
+=
+|\operatorname{Fij}_X(G)|
++
+\sum_{i=1}^{r}|O_i|
+=
+|\operatorname{Fij}_X(G)|
++
+\sum_{i=1}^{r}[G:G_{x_i}].
+\]
+
+Esta igualdad es conocida como la <i>ecuación de clases</i>.
+
+            </p>
+        </article> 
+        <article class="redesredes">
+            <hgroup><h1>ECUACION DE CLASES</h1></hgroup>
+            <p>
+
+            <h2>Teorema 1.41 (Ecuación de clases).</h2>
+
+Sea
+
+\[
+\Delta
+\]
+
+el conjunto de clases de conjugación de \(G\), es decir, la partición de \(G\) cuyos elementos son las órbitas de la acción de conjugación del Ejemplo 1.40. Sea además
+
+\[
+\Delta'
+=
+\{\,D\in\Delta\mid |D|>1\,\},
+\]
+
+el conjunto de las clases de conjugación que contienen más de un elemento.
+
+Para cada clase \(D\in\Delta\), fijemos un representante
+
+\[
+g_D\in D.
+\]
+
+Si \(G\) es finito, entonces
+
+\[
+|G|
+=
+\sum_{D\in\Delta}[G:C_G(g_D)]
+=
+|Z(G)|
++
+\sum_{D\in\Delta'}[G:C_G(g_D)],
+\]
+
+donde
+
+\[
+Z(G)
+=
+\{\,g\in G\mid gh=hg,\ \forall\,h\in G\,\}
+\]
+
+es el <i>centro</i> de \(G\).
+
+<b>Demostración.</b> Ejercicio. \(\square\)
+
+<br><br>
+
+<h2>Corolario 1.42.</h2>
+
+Sea \(p\) un número primo y \(n\) un entero positivo. Si
+
+\[
+|G|=p^n,
+\]
+
+entonces
+
+\[
+|Z(G)|>1.
+\]
+
+<b>Demostración.</b> Ejercicio. \(\square\)
+
+<br><br>
+
+<h2>Corolario 1.43.</h2>
+
+Si \(p\) es un número primo, entonces todo grupo de orden
+
+\[
+p^2
+\]
+
+es abeliano.
+
+<b>Demostración.</b>
+
+Sea \(G\) un grupo de orden \(p^2\).
+
+Por el corolario anterior,
+
+\[
+|Z(G)|=p
+\quad\text{o}\quad
+|Z(G)|=p^2.
+\]
+
+Supongamos, buscando una contradicción, que
+
+\[
+|Z(G)|=p.
+\]
+
+Tomemos
+
+\[
+a\in G\setminus Z(G).
+\]
+
+Entonces
+
+\[
+Z(G)\cup\{a\}\subseteq C_G(a),
+\]
+
+por lo que
+
+\[
+|C_G(a)|>p.
+\]
+
+Como el orden de un subgrupo divide al orden del grupo, se sigue que
+
+\[
+|C_G(a)|=p^2.
+\]
+
+Por tanto,
+
+\[
+C_G(a)=G.
+\]
+
+Esto implica que
+
+\[
+a\in Z(G),
+\]
+
+lo cual contradice la elección de \(a\).
+
+En consecuencia,
+
+\[
+|Z(G)|=p^2,
+\]
+
+es decir,
+
+\[
+Z(G)=G,
+\]
+
+y por lo tanto \(G\) es abeliano. \(\square\)
+
+<br><br>
+
+<h2>Teorema 1.44 (Burnside).</h2>
+
+Sean \(G\) un grupo finito y \(X\) un \(G\)-conjunto finito.
+
+Si \(r\) es el número de órbitas de la acción de \(G\) sobre \(X\), entonces
+
+\[
+r|G|
+=
+\sum_{g\in G}
+|\operatorname{Fij}_X(g)|.
+\]
+
+<b>Demostración.</b>
+
+Consideremos el conjunto
+
+\[
+Y
+=
+\{(g,x)\in G\times X\mid g\cdot x=x\}.
+\]
+
+Para cada \(g\in G\), existen exactamente
+
+\[
+|\operatorname{Fij}_X(g)|
+\]
+
+pares de \(Y\) cuyo primer componente es \(g\). Por lo tanto,
+
+\[
+|Y|
+=
+\sum_{g\in G}
+|\operatorname{Fij}_X(g)|.
+\]
+
+Por otra parte, para cada \(x\in X\), existen exactamente
+
+\[
+|G_x|
+\]
+
+pares de \(Y\) cuyo segundo componente es \(x\). Así,
+
+\[
+|Y|
+=
+\sum_{x\in X}|G_x|.
+\]
+
+Aplicando la Proposición 1.39,
+
+\[
+|G_x|
+=
+\frac{|G|}{|G\cdot x|},
+\]
+
+de modo que
+
+\[
+\begin{aligned}
+|Y|
+&=
+\sum_{x\in X}\frac{|G|}{|G\cdot x|} \\
+&=
+|G|
+\sum_{x\in X}\frac{1}{|G\cdot x|} \\
+&=
+|G|
+\sum_{O\in X/G}
+\sum_{x\in O}\frac{1}{|O|} \\
+&=
+|G|
+\sum_{O\in X/G}1 \\
+&=
+|G|\,r.
+\end{aligned}
+\]
+
+Comparando ambas expresiones para \(|Y|\), obtenemos
+
+\[
+r|G|
+=
+\sum_{g\in G}
+|\operatorname{Fij}_X(g)|.
+\]
+
+\(\square\)
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>TEOREMA DE CAUCHY</h1></hgroup>
+            <p>
+
+            <h2>Proposición 1.45.</h2>
+
+Sean \(p\) un número primo y \(G\) un grupo de orden \(p^n\). Si \(X\) es un \(G\)-conjunto finito, entonces
+
+\[
+|X|\equiv |\operatorname{Fij}_X(G)|\pmod p.
+\]
+
+<b>Demostración.</b>
+
+Esto es consecuencia directa de la ecuación de clases. En efecto, si
+
+\[
+O_1,\ldots,O_r
+\]
+
+son las órbitas que tienen más de un elemento y
+
+\[
+x_i\in O_i,\qquad i=1,\ldots,r,
+\]
+
+entonces
+
+\[
+|X|
+=
+|\operatorname{Fij}_X(G)|
++
+\sum_{i=1}^{r}[G:G_{x_i}],
+\]
+
+y \(p\) divide a cada uno de los índices
+
+\[
+[G:G_{x_i}].
+\]
+
+Por consiguiente,
+
+\[
+|X|
+\equiv
+|\operatorname{Fij}_X(G)|
+\pmod p.
+\]
+
+\(\square\)
+
+<br><br>
+
+<h2>Teorema 1.46 (Cauchy).</h2>
+
+Sean \(G\) un grupo y \(p\) un número primo. Si
+
+\[
+p\mid |G|,
+\]
+
+entonces \(G\) posee un subgrupo de orden \(p\).
+
+<b>Demostración.</b>
+
+Hagamos que el grupo
+
+\[
+\mathbb{Z}_p=\mathbb{Z}/p\mathbb{Z}
+\]
+
+actúe sobre
+
+\[
+G^p
+\]
+
+mediante la regla
+
+\[
+[n]_p\cdot(g_{[1]_p},\ldots,g_{[p]_p})
+=
+(g_{[n+1]_p},\ldots,g_{[n+p]_p}),
+\]
+
+donde los índices se toman módulo \(p\).
+
+Es un ejercicio verificar que esta regla define una acción de \(\mathbb{Z}_p\) sobre \(G^p\).
+
+Consideremos ahora el conjunto
+
+\[
+X=
+\left\{
+(g_{[1]_p},\ldots,g_{[p]_p})
+\in G^p
+\;\middle|\;
+g_{[1]_p}\cdots g_{[p]_p}=e
+\right\}.
+\]
+
+Su cardinalidad es
+
+\[
+|X|=|G|^{p-1},
+\]
+
+y \(X\) es estable bajo la acción anterior.
+
+Aplicando la Proposición 1.45 obtenemos
+
+\[
+|G|^{p-1}
+=
+|X|
+\equiv
+|\operatorname{Fij}_{\mathbb{Z}_p}(X)|
+\pmod p.
+\]
+
+Como
+
+\[
+(e,\ldots,e)\in
+\operatorname{Fij}_{\mathbb{Z}_p}(X),
+\]
+
+el conjunto de puntos fijos no es vacío. Además, su cardinalidad es un múltiplo positivo de \(p\). Por tanto, existe un punto fijo distinto de
+
+\[
+(e,\ldots,e).
+\]
+
+Todo punto fijo satisface
+
+\[
+g_{[1]_p}
+=
+g_{[2]_p}
+=
+\cdots
+=
+g_{[p]_p}
+\]
+
+y además
+
+\[
+g_{[1]_p}\cdots g_{[p]_p}=e.
+\]
+
+Por consiguiente,
+
+\[
+g_{[1]_p}^{\,p}=e.
+\]
+
+Como el punto fijo no es el trivial,
+
+\[
+g_{[1]_p}\neq e,
+\]
+
+de modo que \(g_{[1]_p}\) tiene orden \(p\). El subgrupo generado por este elemento tiene orden \(p\). \(\square\)
+
+<br><br>
+
+<h2>Corolario 1.47.</h2>
+
+Sean \(G\) un grupo finito y \(p\) un número primo. Si todos los elementos de \(G\) tienen orden igual a una potencia de \(p\), entonces
+
+\[
+|G|
+\]
+
+es una potencia de \(p\).
+
+<b>Demostración.</b> Ejercicio. \(\square\)
+
+<br><br>
+
+<h2>Definición 1.48.</h2>
+
+Sea \(p\) un número primo.
+
+Si todos los elementos de un grupo \(G\) tienen orden igual a alguna potencia de \(p\), diremos que \(G\) es un <i>\(p\)-grupo</i>.
+
+<br><br>
+
+<h2>Lema 1.49.</h2>
+
+Sean \(G\) un grupo finito, \(p\) un número primo y \(H\) un \(p\)-subgrupo de \(G\). Entonces:
+
+<ol>
+
+<li>
+
+\[
+[G:H]
+\equiv
+[N_G(H):H]
+\pmod p.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Si
+
+\[
+p\mid [G:H],
+\]
+
+entonces
+
+\[
+H\neq N_G(H).
+\]
+
+</li>
+
+</ol>
+
+<b>Demostración.</b>
+
+Sea
+
+\[
+L=\{\,xH\mid x\in G\,\}
+\]
+
+el conjunto de clases laterales izquierdas de \(H\) en \(G\). Por definición,
+
+\[
+|L|=[G:H].
+\]
+
+Consideremos la acción de \(H\) sobre \(L\) dada por
+
+\[
+h\cdot(xH)=(hx)H.
+\]
+
+Aplicando la Proposición 1.45,
+
+\[
+|L|
+\equiv
+|\operatorname{Fij}_H(L)|
+\pmod p.
+\]
+
+Ahora bien, una clase lateral
+
+\[
+xH
+\]
+
+es fija si y sólo si
+
+\[
+hxH=xH,
+\qquad
+\forall\,h\in H,
+\]
+
+lo cual equivale a
+
+\[
+x^{-1}Hx=H.
+\]
+
+Es decir,
+
+\[
+x\in N_G(H),
+\]
+
+donde
+
+\[
+N_G(H)
+=
+\{\,g\in G\mid gHg^{-1}=H\,\}
+\]
+
+es el <i>normalizador</i> de \(H\).
+
+Por tanto,
+
+\[
+|\operatorname{Fij}_H(L)|
+=
+[N_G(H):H].
+\]
+
+Se concluye que
+
+\[
+[G:H]
+\equiv
+[N_G(H):H]
+\pmod p.
+\]
+
+Esto demuestra la primera afirmación.
+
+La segunda se sigue inmediatamente, pues
+
+\[
+[N_G(H):H]
+\]
+
+es un entero positivo. Si además
+
+\[
+p\mid [G:H],
+\]
+
+entonces
+
+\[
+[N_G(H):H]\ge 1,
+\]
+
+por lo que necesariamente
+
+\[
+N_G(H)\neq H.
+\]
+
+\(\square\)
+
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>TEOREMA DE SYLOW</h1></hgroup>
+            <p>
+
+            <h2>Teorema 1.50 (Sylow).</h2>
+
+Sean \(G\) un grupo finito y \(p\) un número primo. Escribamos
+
+\[
+|G|=p^n m,
+\]
+
+donde
+
+\[
+n,m\in\mathbb{Z}_{\geq 0},
+\qquad
+\gcd(p,m)=1.
+\]
+
+Entonces:
+
+<ol>
+
+<li>
+
+Para cada
+
+\[
+j\in\{0,\ldots,n\},
+\]
+
+existe un subgrupo de \(G\) de orden
+
+\[
+p^j.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Si \(H\leq G\) tiene orden
+
+\[
+|H|=p^j,
+\qquad
+0\leq j<n,
+\]
+
+entonces existe un subgrupo \(K\leq G\) tal que
+
+\[
+H\subseteq K
+\]
+
+y
+
+\[
+|K|=p^{j+1}.
+\]
+
+</li>
+
+<br>
+
+<li>
+
+Cualesquiera dos subgrupos de \(G\) de orden
+
+\[
+p^n
+\]
+
+son conjugados.
+
+</li>
+
+<br>
+
+<li>
+
+El número de subgrupos de \(G\) de orden
+
+\[
+p^n
+\]
+
+es congruente con \(1\) módulo \(p\) y divide a
+
+\[
+|G|.
+\]
+
+</li>
+
+</ol>
+
+<b>Demostración.</b>
+
+Es claro que la primera afirmación se deduce de la segunda.
+
+Demostraremos la segunda por inducción sobre
+
+\[
+j\in\{0,\ldots,n-1\}.
+\]
+
+Si \(n>0\), entonces
+
+\[
+p\mid |G|,
+\]
+
+y el Teorema de Cauchy garantiza la existencia de un subgrupo de orden \(p\). Por tanto, el único subgrupo de orden
+
+\[
+p^0=1
+\]
+
+está contenido en un subgrupo de orden
+
+\[
+p^{0+1}=p.
+\]
+
+Supongamos ahora que
+
+\[
+H\leq G,
+\qquad
+|H|=p^j,
+\]
+
+con
+
+\[
+0\leq j<n.
+\]
+
+Entonces
+
+\[
+p\mid [G:H].
+\]
+
+Por el Lema 1.49,
+
+\[
+H\neq N_G(H).
+\]
+
+Además,
+
+\[
+p\mid |N_G(H)/H|.
+\]
+
+Aplicando nuevamente el Teorema de Cauchy al grupo cociente
+
+\[
+N_G(H)/H,
+\]
+
+obtenemos un subgrupo de orden \(p\).
+
+Todo subgrupo del cociente es de la forma
+
+\[
+K/H,
+\]
+
+para algún subgrupo
+
+\[
+H\subseteq K\subseteq N_G(H).
+\]
+
+Como
+
+\[
+|K/H|=p,
+\]
+
+se sigue que
+
+\[
+|K|=p^{j+1}.
+\]
+
+Esto demuestra la segunda afirmación.
+
+<br><br>
+
+Para demostrar la tercera afirmación, sean
+
+\[
+H,K\leq G,
+\qquad
+|H|=|K|=p^n.
+\]
+
+Sea
+
+\[
+X
+=
+\{\,gKg^{-1}\mid g\in G\,\},
+\]
+
+el conjunto de todos los conjugados de \(K\).
+
+Hagamos actuar \(H\) sobre \(X\) por conjugación.
+
+Por la Proposición 1.45,
+
+\[
+|X|
+\equiv
+|\operatorname{Fij}_H(X)|
+\pmod p.
+\]
+
+Como
+
+\[
+|X|
+=
+[G:N_G(K)]
+\]
+
+y
+
+\[
+p\nmid [G:N_G(K)],
+\]
+
+también se tiene
+
+\[
+p\nmid
+|\operatorname{Fij}_H(X)|.
+\]
+
+En consecuencia,
+
+\[
+\operatorname{Fij}_H(X)\neq\varnothing.
+\]
+
+Sea
+
+\[
+T\in\operatorname{Fij}_H(X).
+\]
+
+Entonces existe
+
+\[
+g\in G
+\]
+
+tal que
+
+\[
+T=gKg^{-1}.
+\]
+
+Además,
+
+\[
+hTh^{-1}=T,
+\qquad
+\forall\,h\in H.
+\]
+
+Esto implica
+
+\[
+g^{-1}Hg
+\subseteq
+N_G(K).
+\]
+
+Como
+
+\[
+p\nmid [N_G(K):K],
+\]
+
+se concluye que
+
+\[
+g^{-1}Hg
+\subseteq
+K.
+\]
+
+Pero ambos grupos tienen el mismo orden,
+
+\[
+p^n,
+\]
+
+por lo que necesariamente
+
+\[
+g^{-1}Hg=K.
+\]
+
+Así, \(H\) y \(K\) son conjugados.
+
+<br><br>
+
+Finalmente, sea
+
+\[
+P
+=
+\{\,K\leq G\mid |K|=p^n\,\},
+\]
+
+el conjunto de todos los subgrupos de Sylow de \(G\).
+
+Hagamos actuar \(H\) sobre \(P\) por conjugación.
+
+Aplicando nuevamente la Proposición 1.45,
+
+\[
+|P|
+\equiv
+|\operatorname{Fij}_P(H)|
+\pmod p.
+\]
+
+Ahora bien, un subgrupo
+
+\[
+K\in P
+\]
+
+es fijo si y sólo si
+
+\[
+hKh^{-1}=K,
+\qquad
+\forall\,h\in H,
+\]
+
+lo cual equivale a
+
+\[
+H\subseteq N_G(K).
+\]
+
+Por el argumento anterior, esto sólo ocurre cuando
+
+\[
+H=K.
+\]
+
+Así,
+
+\[
+|\operatorname{Fij}_P(H)|=1,
+\]
+
+y por tanto
+
+\[
+|P|
+\equiv
+1
+\pmod p.
+\]
+
+Por otra parte, como la acción de \(G\) sobre \(P\) por conjugación es transitiva,
+
+\[
+|P|
+=
+[G:N_G(H)],
+\]
+
+de donde se concluye que
+
+\[
+|P|
+\mid
+|G|.
+\]
+
+\(\square\)
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>GRUPOS ABELIANOS FINITAMENTE GENERADOS</h1></hgroup>
+            <p>
+
+            <h2>Teorema 1.51.</h2>
+
+Si \(G\) es un grupo abeliano finitamente generado, entonces existen enteros no negativos
+
+\[
+r,\; s_1,\; \ldots,\; s_m,
+\]
+
+tales que \(G\) es isomorfo al grupo
+
+\[
+\mathbb{Z}^{\,r}
+\oplus
+\mathbb{Z}_{s_1}
+\oplus
+\cdots
+\oplus
+\mathbb{Z}_{s_m}.
+\]
+            </p>
+        </article>
+        <article class="redesredes">
+            <hgroup><h1>REPRESENTACIONES, INTRODUCCION</h1></hgroup>
+            <p>
+            </p>
+        </article>
+    </section>
+    
+    <section class="clasesRedes"> 
+        <article class="redesredes">
+            <hgroup><h1>TEORIA DE ANILLOS</h1></hgroup>
+        </article>
+    </section>
+</body>
+</html>
