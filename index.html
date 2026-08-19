@@ -1,78 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Está es mi primer Pagina Web"/>
-	<meta name="author" content="Fazt"/>
-	<meta name="keybords" content="Mi primer titulo, mi primer pagina, pagina web">
-	<title>G.D.Intelectual</title>
-	<link rel="stylesheet" href="estilos.css">
-	<!--AQUI VA LA LIBRERIAS DE JAVASCRIPT -->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G.D.INTELECTUAL</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<header class="cabecera">
-		<div class="circulo">
-				<div class="circle" id="circle1"></div>
-				<div class="circle" id="circle2"></div>
-				<div class="circle" id="circle3"></div>
-				<div class="circle" id="circle4"></div>
-				<div class="circle" id="circle5"></div>
-				<div class="circle" id="circle6"></div>
-				<div class="circle" id="circle7"></div>
-				<div class="circle" id="circle8"></div>
-				<div class="circle" id="circle9"></div>
-				<div class="circle" id="circle10"></div>
-		</div>
-		<h1 class="TITULOPRINCIPAL">G.D.Intelectual
-			<img src="Private GIF.gif" class="gifUno" alt="">	
-		</h1>
-	</header>
-	<nav class="menuDos">
-	<ul>	
-		<li><a href="./integrantes/arian/arianuno.html" target="opciones">Sobre mí</a></li>
-		<li><a href="./math/diferencial/diferencial.html" target="opciones">La Santa Trinidad</a></li>
-        <li><a href="./math/Lineal/lineal.html" target="opciones">Algebra Lineal</a></li>
-        <li><a href="./math/EcDif/ecdif.html" target="opciones">Ecuaciones Diferenciales</a></li>
-		<li><a href="./math/AnalMat/analmat.html" target="opciones">Analisis Matematico</a></li>
-        <li><a href="./math/Topo/topo.html" target="opciones">Topologia</a></li>
-        <li><a href="./math/AlAbs/Albs.html" target="opciones">Algebra Abstracta<br> y Superalgebras</a></li>
-        <li><a href="./especial/especial.html" target="opciones">"Calculo" de "Leithold"</a></li>
 
-		<div class="loader">
-			<div class="wrapper">
-				<span class="side"></span>
-				<span class="side"></span>
-				<span class="side"></span>
-				<span class="side"></span>
-				<span class="shadow"></span>
-			</div>
-		</div>
-	</ul>
-    </nav>
+    <!-- Fondo decorativo -->
+    <div class="grid-background"></div>
+    <div class="scanlines"></div>
 
-    <!-- <button id="toggleMenu">☰</button> -->
-    <nav class="menuIzquierda">
-    <ul>
-    	<div class="pequeño"></div>
-    	<!--Aqui estas HIJO DE PUTA, asi se enlazan las paginas -->
-    	<li><a href="./principal/principal.html" target="opciones">Principal</a></li>
-    	<li><a href="./consciencia/consciencia.html" target="opciones">Horro al Cuerpo</a></li> 
-        <li><a href="" target="opciones">Topologia algebraica</a></li>
-        <li><a href="" target="opciones">Geometria Diferencial</a></li> 
-    	<li><a href="./computacional/computacional.html" target="opciones">Teoria de la Complejidad Computacional</a></li>
-    	<li><a href="./categorias/categorias.html" target="opciones">teoria de categorias</a></li>
-    </ul>
-    </nav>
+    <header class="site-header">
+        <div class="logo-wrap">
+            <span class="logo-mark">G.D.</span>
+            <h1>INTELECTUAL</h1>
+        </div>
 
-    <!--AQUI VAN A IR LAS SUB PAGINAS DE LA PAGINA -->
-    <!--  y AQUI va lo que se le pone como "opciones"-->
+        <!-- Menú horizontal -->
+        <nav class="top-menu" aria-label="Menú principal">
+            <a class="top-btn active" href="./arian/arianuno.html" target="opciones">Sobre Mi</a>
+            <a class="top-btn" href="./math/diferencial/diferencial.html" target="opciones">La Santa Trinidad</a>
+            <a class="top-btn" href="./math/Lineal/lineal.html" target="opciones">Algebra Lineal</a>
+            <a class="top-btn" href="./math/EcDif/ecdif.html" target="opciones">Ecuaciones Diferenciales</a>
+            <a class="top-btn" href="./math/AnalMat/analmat.html" target="opciones">Analisis Matematico</a>
+            <a class="top-btn" href="./math/Topo/topo.html" target="opciones">Topologia</a>
+            <a class="top-btn" href="./math/AlAbs/Albs.html" target="opciones">ALGEBRA ABSTRACTA Y SUPERALGEBRAS</a>
+            <a class="top-btn" href="./especial/especial.html" target="opciones">CALCULO DE LEITHOLD</a>
+        </nav>
+    </header>
 
-    <main>
+    <div class="app-layout">
 
-    	<iframe name="opciones" src="./principal/principal.html" frameborder="0"></iframe>
+        <!-- Menú lateral desplegable -->
+        <aside class="sidebar" id="sidebar">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir o cerrar menú">
+                <span></span><span></span><span></span>
+            </button>
 
-    </main>
+            <div class="sidebar-content">
+                <div class="side-title">EXTENSION</div>
+
+                <a class="side-btn" href="./principal/principal.html" target="opciones">
+                    <span class="side-icon">∑</span>
+                    <span>Principal</span>
+                </a>
+
+                <a class="side-btn" href="./consciencia/consciencia.html" target="opciones">
+                    <span class="side-icon">∂</span>
+                    <span>Horro al Cuerpo</span>
+                </a>
+
+                <a class="side-btn" href="" target="opciones">
+                    <span class="side-icon">△</span>
+                    <span>Topologia Algebraica</span>
+                </a>
+
+                <a class="side-btn" href="" target="opciones">
+                    <span class="side-icon">G</span>
+                    <span>Geometria Diferencial</span>
+                </a>
+
+                <a class="side-btn" href="./computacional/computacional.html" target="opciones">
+                    <span class="side-icon">{ }</span>
+                    <span>Teoria de la Complejidad Computacional</span>
+                </a> 
+
+                <a class="side-btn" href="./categorias/categorias.html" target="opciones">
+                    <span class="side-icon">Ω</span>
+                    <span>Teoria de Categorias</span>
+                </a>
+
+                <div class="side-status">
+                    <span class="status-dot"></span>
+                    Sexooooooo
+                </div>
+            </div>
+        </aside>
+
+        <!-- Área central -->
+        <main class="main-content">
+            <iframe name="opciones" src="./principal/principal.html" frameborder="0"></iframe>
+        </main>
+    </div>
+
+    <footer>
+        <span>G.D.INTELECTUAL</span>
+        <span>/// KNOWLEDGE IS STRUCTURE ///</span>
+    </footer>
+
+    <script>
+        
+        const sidebar = document.getElementById("sidebar");
+        const sidebarToggle = document.getElementById("sidebarToggle");
+
+        sidebarToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
+    </script>
+
 </body>
 </html>
