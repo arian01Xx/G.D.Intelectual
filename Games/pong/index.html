@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090a0d">
+    <title>Pong | G.D. Intelectual</title>
+    <link rel="stylesheet" href="pong.css">
+</head>
+<body>
+    <main class="game-page">
+        <header class="intro">
+            <p class="eyebrow">ARCADE // 02</p>
+            <h1>Pong</h1>
+            <p class="description">Juega contra la máquina. El primero en llegar a 5 gana.</p>
+        </header>
+        <section class="game-card" aria-label="Juego Pong">
+            <div class="hud" aria-live="polite">
+                <div><span class="hud-label">TÚ</span><strong id="player-score">0</strong></div>
+                <span class="versus">:</span>
+                <div><span class="hud-label">CPU</span><strong id="cpu-score">0</strong></div>
+            </div>
+            <div class="board-wrap">
+                <canvas id="game" width="600" height="360" aria-label="Pong. Usa las flechas arriba y abajo o W y S para mover la paleta."></canvas>
+                <div class="overlay" id="overlay">
+                    <strong id="overlay-title">¿Listo para jugar?</strong>
+                    <span id="overlay-message">Pulsa Jugar o una tecla de movimiento</span>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="primary" id="start-button" type="button">Jugar</button>
+                <button id="pause-button" type="button" disabled>Pausar</button>
+            </div>
+            <div class="mobile-controls" aria-label="Controles táctiles">
+                <button type="button" data-control="up" aria-label="Mover paleta arriba">▲ Arriba</button>
+                <button type="button" data-control="down" aria-label="Mover paleta abajo">▼ Abajo</button>
+            </div>
+            <p class="help">Flechas ↑ ↓ o W S para moverte · Espacio para pausar · Primero a 5 puntos</p>
+        </section>
+        <footer>Récord de partidas: juega otra ronda y mejora tu resultado.</footer>
+    </main>
+    <script src="pong.js"></script>
+</body>
+</html>

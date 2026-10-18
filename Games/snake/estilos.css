@@ -1,0 +1,58 @@
+:root {
+    color-scheme: dark;
+    --cyan: #63e1dc;
+    --pink: #ed5be8;
+    --text: #edf5ff;
+    --muted: #98a7b8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 28px 18px;
+    display: grid;
+    place-items: center;
+    color: var(--text);
+    background: radial-gradient(ellipse at 50% 0, rgba(99,225,220,.11), transparent 55%), #090a0d;
+    font-family: "Courier New", monospace;
+}
+
+button { font: inherit; }
+
+.game-page { width: min(100%, 600px); }
+.intro { margin-bottom: 22px; text-align: center; }
+.eyebrow { margin: 0 0 8px; color: var(--cyan); font-size: 11px; letter-spacing: 3px; }
+h1 { margin: 0; color: #fff; font: 700 clamp(38px, 9vw, 58px)/1 Arial, sans-serif; letter-spacing: 5px; text-shadow: 3px 0 var(--pink), 0 0 22px rgba(99,225,220,.25); }
+.description { margin: 12px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+.game-card { padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.hud { display: flex; justify-content: space-between; max-width: 420px; margin: 0 auto 12px; }
+.hud div { display: grid; gap: 4px; }
+.hud div:last-child { text-align: right; }
+.hud-label { color: var(--muted); font-size: 10px; letter-spacing: 2px; }
+.hud strong { color: var(--cyan); font-size: 20px; }
+.board-wrap { position: relative; width: min(100%, 420px); margin: auto; overflow: hidden; background: #080d12; }
+canvas { display: block; width: 100%; height: auto; aspect-ratio: 1; touch-action: none; }
+.overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; padding: 20px; background: rgba(5,8,12,.77); text-align: center; }
+.overlay[hidden] { display: none; }
+.overlay strong { color: #fff; font: 700 clamp(19px, 5vw, 25px) Arial, sans-serif; }
+.overlay span { color: var(--muted); font-size: 12px; line-height: 1.6; }
+.actions { display: flex; justify-content: center; gap: 10px; margin: 16px 0 6px; }
+.actions button, .mobile-controls button { min-height: 42px; border: 1px solid rgba(99,225,220,.35); border-radius: 6px; color: var(--text); background: #111722; cursor: pointer; }
+.actions button { min-width: 112px; padding: 9px 16px; }
+.actions button:hover:not(:disabled), .mobile-controls button:hover { border-color: var(--cyan); box-shadow: 0 0 14px rgba(99,225,220,.15); }
+.actions button.primary { color: #081012; border-color: var(--cyan); background: var(--cyan); font-weight: 700; }
+.actions button:disabled { cursor: not-allowed; opacity: .45; }
+.mobile-controls { display: none; margin: 14px auto 4px; text-align: center; }
+.mobile-controls div { display: flex; justify-content: center; gap: 8px; margin-top: 8px; }
+.mobile-controls button { width: 54px; min-height: 45px; touch-action: manipulation; }
+.help { margin: 14px 0 0; color: var(--muted); font-size: 11px; line-height: 1.7; text-align: center; }
+footer { margin-top: 18px; color: #687585; font-size: 10px; text-align: center; }
+
+@media (max-width: 600px) {
+    body { padding: 20px 12px; }
+    .mobile-controls { display: block; }
+    .help { max-width: 280px; margin-inline: auto; }
+}
