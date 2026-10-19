@@ -21,19 +21,19 @@ body {
 
 button { font: inherit; }
 
-.game-page { width: min(100%, 600px); }
+.game-page { width: min(100%, 760px); }
 .intro { margin-bottom: 22px; text-align: center; }
 .eyebrow { margin: 0 0 8px; color: var(--cyan); font-size: 11px; letter-spacing: 3px; }
 h1 { margin: 0; color: #fff; font: 700 clamp(38px, 9vw, 58px)/1 Arial, sans-serif; letter-spacing: 5px; text-shadow: 3px 0 var(--pink), 0 0 22px rgba(99,225,220,.25); }
 .description { margin: 12px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
 
 .game-card { padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
-.hud { display: flex; justify-content: space-between; max-width: 420px; margin: 0 auto 12px; }
+.hud { display: flex; justify-content: space-between; max-width: 560px; margin: 0 auto 12px; }
 .hud div { display: grid; gap: 4px; }
 .hud div:last-child { text-align: right; }
 .hud-label { color: var(--muted); font-size: 10px; letter-spacing: 2px; }
 .hud strong { color: var(--cyan); font-size: 20px; }
-.board-wrap { position: relative; width: min(100%, 420px); margin: auto; overflow: hidden; background: #080d12; }
+.board-wrap { position: relative; width: min(100%, 560px); margin: auto; overflow: hidden; background: #080d12; }
 canvas { display: block; width: 100%; height: auto; aspect-ratio: 1; touch-action: none; }
 .overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; padding: 20px; background: rgba(5,8,12,.77); text-align: center; }
 .overlay[hidden] { display: none; }

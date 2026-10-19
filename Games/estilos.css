@@ -8,7 +8,7 @@ body {
     background: radial-gradient(ellipse at 50% 0, rgba(99,225,220,.11), transparent 55%), #090a0d;
     font-family: "Courier New", monospace;
 }
-.catalog { width: min(100%, 820px); margin: 0 auto; }
+.catalog { width: min(100%, 1100px); margin: 0 auto; }
 .intro { margin: 0 0 26px; text-align: center; }
 .eyebrow { margin: 0 0 8px; color: var(--cyan); font-size: 11px; letter-spacing: 3px; }
 h1 { margin: 0; color: #fff; font: 700 clamp(38px, 9vw, 58px)/1 Arial, sans-serif; letter-spacing: 5px; text-shadow: 3px 0 var(--pink), 0 0 22px rgba(99,225,220,.25); }

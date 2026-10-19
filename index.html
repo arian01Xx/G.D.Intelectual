@@ -13,23 +13,30 @@
     <div class="scanlines"></div>
 
     <header class="site-header">
+        <button class="header-collapse-toggle" id="headerCollapseToggle" type="button" aria-label="Ocultar encabezado" title="Ocultar encabezado">⌃</button>
         <div class="logo-wrap">
             <span class="logo-mark">G.D.</span>
             <h1>INTELECTUAL</h1>
         </div>
 
         <!-- Menú horizontal -->
-        <nav class="top-menu" aria-label="Menú principal">
-            <a class="top-btn active" href="./arian/arianuno.html" target="opciones">Sobre Mi</a>
-            <a class="top-btn" href="./math/diferencial/diferencial.html" target="opciones">La Santa Trinidad</a>
-            <a class="top-btn" href="./math/Lineal/lineal.html" target="opciones">Algebra Lineal</a>
-            <a class="top-btn" href="./math/EcDif/ecdif.html" target="opciones">Ecuaciones Diferenciales</a>
-            <a class="top-btn" href="./math/AnalMat/analmat.html" target="opciones">Analisis Matematico</a>
-            <a class="top-btn" href="./math/Topo/topo.html" target="opciones">Topologia</a>
-            <a class="top-btn" href="./math/AlAbs/Albs.html" target="opciones">Algebra Abstracta y Superalgebras</a>
-            <a class="top-btn" href="./math/Lei/leithold.html" target="opciones">Calculo de Leithold</a>
-        </nav>
+        <div class="top-menu-wrap">
+            <button class="top-menu-prev" id="topMenuPrev" type="button" aria-label="Ver opciones anteriores" aria-controls="topMenu" hidden>‹</button>
+            <nav class="top-menu" id="topMenu" aria-label="Menú principal">
+                <a class="top-btn active" href="./arian/arianuno.html" target="opciones">Sobre Mi</a>
+                <a class="top-btn" href="./math/diferencial/diferencial.html" target="opciones">La Santa Trinidad</a>
+                <a class="top-btn" href="./math/Lineal/lineal.html" target="opciones">Algebra Lineal</a>
+                <a class="top-btn" href="./math/EcDif/ecdif.html" target="opciones">Ecuaciones Diferenciales</a>
+                <a class="top-btn" href="./math/AnalMat/analmat.html" target="opciones">Analisis Matematico</a>
+                <a class="top-btn" href="./math/Topo/topo.html" target="opciones">Topologia</a>
+                <a class="top-btn" href="./math/AlAbs/Albs.html" target="opciones">Algebra Abstracta y Superalgebras</a>
+                <a class="top-btn" href="./math/Lei/leithold.html" target="opciones">Calculo de Leithold</a>
+            </nav>
+            <button class="top-menu-next" id="topMenuNext" type="button" aria-label="Ver más opciones del menú" aria-controls="topMenu" hidden>›</button>
+        </div>
     </header>
+
+    <button class="header-restore-toggle" id="headerRestoreToggle" type="button" aria-label="Mostrar encabezado" title="Mostrar encabezado" hidden>⌄</button>
 
     <div class="app-layout">
 
@@ -95,10 +102,41 @@
         
         const sidebar = document.getElementById("sidebar");
         const sidebarToggle = document.getElementById("sidebarToggle");
+        const topMenu = document.getElementById("topMenu");
+        const topMenuPrev = document.getElementById("topMenuPrev");
+        const topMenuNext = document.getElementById("topMenuNext");
+        const headerCollapseToggle = document.getElementById("headerCollapseToggle");
+        const headerRestoreToggle = document.getElementById("headerRestoreToggle");
 
         sidebarToggle.addEventListener("click", () => {
             sidebar.classList.toggle("open");
         });
+
+        function updateTopMenuButton() {
+            const hasMoreOptions = topMenu.scrollWidth > topMenu.clientWidth + 1;
+            const isAtStart = topMenu.scrollLeft <= 1;
+            const isAtEnd = topMenu.scrollLeft + topMenu.clientWidth >= topMenu.scrollWidth - 1;
+            topMenuPrev.hidden = !hasMoreOptions || isAtStart;
+            topMenuNext.hidden = !hasMoreOptions || isAtEnd;
+        }
+
+        topMenuPrev.addEventListener("click", () => {
+            topMenu.scrollBy({ left: -topMenu.clientWidth * 0.75, behavior: "smooth" });
+        });
+        topMenuNext.addEventListener("click", () => {
+            topMenu.scrollBy({ left: topMenu.clientWidth * 0.75, behavior: "smooth" });
+        });
+        topMenu.addEventListener("scroll", updateTopMenuButton);
+        window.addEventListener("resize", updateTopMenuButton);
+        updateTopMenuButton();
+
+        function setHeaderCollapsed(collapsed) {
+            document.body.classList.toggle("header-collapsed", collapsed);
+            headerRestoreToggle.hidden = !collapsed;
+        }
+
+        headerCollapseToggle.addEventListener("click", () => setHeaderCollapsed(true));
+        headerRestoreToggle.addEventListener("click", () => setHeaderCollapsed(false));
     </script>
 
 </body>
