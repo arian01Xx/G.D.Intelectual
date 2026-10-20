@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090a0d">
+    <title>Breakout | G.D. Intelectual</title>
+    <link rel="stylesheet" href="breakout.css">
+</head>
+<body>
+    <main class="game-page">
+        <header class="intro">
+            <p class="eyebrow">ARCADE // 03</p>
+            <h1>Breakout</h1>
+            <p class="description">Destruye todos los bloques sin dejar caer la pelota.</p>
+        </header>
+        <section class="game-card" aria-label="Juego Breakout">
+            <div class="hud" aria-live="polite">
+                <div><span class="hud-label">PUNTOS</span><strong id="score">0</strong></div>
+                <div><span class="hud-label">VIDAS</span><strong id="lives">3</strong></div>
+            </div>
+            <div class="board-wrap">
+                <canvas id="game" width="760" height="520" aria-label="Breakout. Mueve la paleta con las flechas, A y D o el mouse."></canvas>
+                <div class="overlay" id="overlay">
+                    <strong id="overlay-title">¿Listo para jugar?</strong>
+                    <span id="overlay-message">Pulsa Jugar o mueve la paleta</span>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="primary" id="start-button" type="button">Jugar</button>
+                <button id="pause-button" type="button" disabled>Pausar</button>
+            </div>
+            <div class="mobile-controls" aria-label="Controles táctiles">
+                <button type="button" data-control="left" aria-label="Mover paleta a la izquierda">◀ Izquierda</button>
+                <button type="button" data-control="right" aria-label="Mover paleta a la derecha">Derecha ▶</button>
+            </div>
+            <p class="help">Flechas ← → o A D para moverte · También puedes usar el mouse o tocar la pantalla · Espacio para pausar</p>
+        </section>
+        <footer>Completa la ronda y supera tu puntuación.</footer>
+    </main>
+    <script src="breakout.js"></script>
+</body>
+</html>

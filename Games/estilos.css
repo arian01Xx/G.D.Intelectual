@@ -20,5 +20,6 @@ h1 { margin: 0; color: #fff; font: 700 clamp(38px, 9vw, 58px)/1 Arial, sans-seri
 .section-heading p { margin: 5px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
 iframe { display: block; width: 100%; height: 690px; border: 1px solid rgba(99,225,220,.15); border-radius: 8px; background: #090a0d; }
 .game-section:nth-of-type(3) iframe { height: 680px; }
+.game-section:nth-of-type(4) iframe { height: 840px; }
 footer { padding: 4px 0 18px; color: #687585; font-size: 11px; text-align: center; }
-@media (max-width: 600px) { body { padding: 22px 12px; } iframe { height: 740px; } .game-section:nth-of-type(3) iframe { height: 720px; } }
+@media (max-width: 600px) { body { padding: 22px 12px; } iframe { height: 740px; } .game-section:nth-of-type(3) iframe { height: 720px; } .game-section:nth-of-type(4) iframe { height: 740px; } }
